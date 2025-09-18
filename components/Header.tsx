@@ -18,8 +18,8 @@ const Header: React.FC = () => {
     <>
       <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/80 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#" className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-500">
-            Hacktopia
+          <a href="#" className="block" aria-label="Hacktopia Home">
+            <img src="/Hacktopia.svg" alt="Hacktopia Logo" className="h-8" />
           </a>
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map(link => (
