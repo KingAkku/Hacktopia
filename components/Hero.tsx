@@ -5,13 +5,21 @@ import SplitText from './SplitText';
 import ShinyText from './ShinyText';
 import CalendarIcon from './icons/CalendarIcon';
 import LocationIcon from './icons/LocationIcon';
+import ScrollVelocity from './ScrollVelocity';
 
 const Hero: React.FC = () => {
   const eventDate = "2025-10-26T09:00:00";
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 pb-10">
-      <div className="container mx-auto px-6 text-center">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden">
+       <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
+          <ScrollVelocity 
+            texts={['PEC', 'PEC', 'PEC']}
+            velocity={20}
+            className="text-[20vw] font-black text-gray-900"
+          />
+      </div>
+      <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="mb-8">
           <SplitText
             tag="h1"
