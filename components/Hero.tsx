@@ -30,13 +30,13 @@ const Hero: React.FC = () => {
         </div>
         
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 text-gray-600 mb-12">
-          <div className="flex items-center space-x-2">
-            <CalendarIcon className="w-6 h-6 text-green-500" />
-            <span>September 25, 2025</span>
+          <div className="flex items-start sm:items-center space-x-2">
+            <CalendarIcon className="w-6 h-6 text-green-500 flex-shrink-0 mt-1 sm:mt-0" />
+            <span className="text-left">September 25, 2025</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <LocationIcon className="w-6 h-6 text-teal-500" />
-            <span>College of Engineering, Pathanapuram</span>
+          <div className="flex items-start sm:items-center space-x-2">
+            <LocationIcon className="w-6 h-6 text-teal-500 flex-shrink-0 mt-1 sm:mt-0" />
+            <span className="text-left">College of Engineering, Pathanapuram</span>
           </div>
         </div>
         
