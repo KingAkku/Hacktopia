@@ -1,58 +1,43 @@
 import React from 'react';
-import type { ScheduleItem } from '../types';
+import { ScheduleItem } from '../types';
 import SplitText from './SplitText';
 
 const scheduleData: ScheduleItem[] = [
-  { time: '09:00 AM', title: 'Registration & Breakfast', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
-  { time: '10:00 AM', title: 'Opening Ceremony', description: 'Kick-off talks, keynote address, and official start of the hackathon.' },
-  { time: '10:30 AM', title: 'Hacking Begins!', description: 'Time to start building. Mentors will be available to help.' },
-  { time: '01:00 PM', title: 'Lunch Break', description: 'Refuel with a delicious lunch on us.' },
-  { time: '04:00 PM', title: 'Workshop Session', description: 'Optional workshop on "Pitching Your Idea Effectively".' },
-  { time: '06:00 PM', title: 'Hacking Ends & Submissions Due', description: 'Pencils down! Finalize your projects and submit them for judging.' },
-  { time: '06:30 PM', title: 'Dinner & Project Expo', description: 'Enjoy dinner while judges review the submissions.' },
-  { time: '08:00 PM', title: 'Finalist Pitches', description: 'The top 5 teams present their projects on stage.' },
-  { time: '09:00 PM', title: 'Awards & Closing Ceremony', description: 'Announcement of winners and closing remarks.' },
+  { time: 'Friday, 5:00 PM', title: 'Check-in & Welcome Mixer', description: 'Doors open! Grab your swag, meet fellow hackers, and get settled in.' },
+  { time: 'Friday, 7:00 PM', title: 'Opening Ceremony', description: 'Official kickoff, keynote speech, and announcement of the themes.' },
+  { time: 'Friday, 8:00 PM', title: 'Hacking Begins!', description: 'Let the coding commence! Find your team and start building.' },
+  { time: 'Saturday, 1:00 PM', title: 'Midpoint Check-in & Lunch', description: 'Refuel with some great food and share your progress with mentors.' },
+  { time: 'Saturday, 6:00 PM', title: 'Tech Workshop', description: 'Join a workshop on cutting-edge AI technologies to boost your project.' },
+  { time: 'Sunday, 8:00 AM', title: 'Hacking Ends', description: 'Pencils down! Finalize your projects and prepare your submissions.' },
+  { time: 'Sunday, 10:00 AM', title: 'Project Expo & Judging', description: 'Showcase your creation to the judges and fellow participants.' },
+  { time: 'Sunday, 3:00 PM', title: 'Closing Ceremony & Awards', description: 'Celebrate the winners and an amazing weekend of innovation.' },
 ];
 
 const Schedule: React.FC = () => {
   return (
     <section id="schedule" className="py-20">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="mb-4">
-              <SplitText 
-                  tag="h2" 
-                  text="Event Timeline" 
-                  className="text-5xl font-bold" 
-                  splitType="words" 
-              />
-          </div>
-          <div className="text-lg text-gray-600">
-              <SplitText 
-                  text="A full day packed with innovation and fun." 
-                  splitType="words" 
-                  delay={20} 
-              />
-          </div>
+          <SplitText
+            tag="h2"
+            text="Event Schedule"
+            className="text-4xl md:text-5xl font-extrabold text-gray-800"
+            splitType="words"
+            triggerOnScroll
+          />
         </div>
-        <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-1/2 w-1 bg-gradient-to-b from-green-200 to-teal-200 h-full transform -translate-x-1/2"></div>
+        <div className="relative max-w-2xl mx-auto">
+          <div className="absolute left-1/2 w-0.5 h-full bg-green-200 transform -translate-x-1/2"></div>
           {scheduleData.map((item, index) => (
             <div key={index} className="mb-8 flex justify-between items-center w-full">
-              {/* Time on one side */}
-              <div className={`w-5/12 ${index % 2 === 0 ? 'order-1 text-right' : 'order-3 text-left'}`}>
-                <p className="text-lg font-bold text-green-700">{item.time}</p>
+              <div className="order-1 w-5/12"></div>
+              <div className="z-10 flex items-center order-1 bg-green-500 shadow-xl w-8 h-8 rounded-full">
+                <h1 className="mx-auto font-semibold text-lg text-white">{index + 1}</h1>
               </div>
-
-              {/* Dot in the middle */}
-              <div className="z-10 order-2 flex items-center">
-                <div className="w-6 h-6 rounded-full bg-white border-4 border-green-500 shadow-md"></div>
-              </div>
-
-              {/* Card on the other side */}
-              <div className={`w-5/12 p-6 bg-white rounded-2xl shadow-lg border border-gray-100 ${index % 2 === 0 ? 'order-3' : 'order-1'}`}>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
+              <div className={`order-1 rounded-lg shadow-xl w-5/12 px-6 py-4 ${index % 2 === 0 ? 'bg-green-50' : 'bg-teal-50'}`}>
+                <p className="font-bold text-gray-800 text-sm">{item.time}</p>
+                <h3 className="mb-2 font-bold text-green-700 text-lg">{item.title}</h3>
+                <p className="text-sm leading-snug tracking-wide text-gray-600 text-opacity-100">{item.description}</p>
               </div>
             </div>
           ))}

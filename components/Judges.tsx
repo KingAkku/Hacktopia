@@ -1,46 +1,36 @@
 import React from 'react';
-import type { Judge } from '../types';
+import { Judge } from '../types';
 import SplitText from './SplitText';
 
 const judgesData: Judge[] = [
-  { name: 'Dr. Evelyn Reed', title: 'Professor, Computer Science', imageUrl: 'https://placehold.co/200x200/e2e8f0/cbd5e1?text=Judge' },
-  { name: 'Marcus Chen', title: 'Founder & CEO, InnovateX', imageUrl: 'https://placehold.co/200x200/e2e8f0/cbd5e1?text=Judge' },
-  { name: 'Priya Sharma', title: 'Lead UX Designer, Google', imageUrl: 'https://placehold.co/200x200/e2e8f0/cbd5e1?text=Judge' },
-  { name: 'Ben Carter', title: 'Venture Capitalist, Future Labs', imageUrl: 'https://placehold.co/200x200/e2e8f0/cbd5e1?text=Judge' },
+  { name: 'Alice Johnson', title: 'Principal Engineer, Google', imageUrl: 'https://i.pravatar.cc/300?img=1' },
+  { name: 'Bob Williams', title: 'CTO, Innovate Inc.', imageUrl: 'https://i.pravatar.cc/300?img=2' },
+  { name: 'Charlie Brown', title: 'Lead UX Designer, Figma', imageUrl: 'https://i.pravatar.cc/300?img=3' },
+  { name: 'Diana Miller', title: 'Venture Capitalist, Tech Ventures', imageUrl: 'https://i.pravatar.cc/300?img=4' },
 ];
-
-const JudgeCard: React.FC<{ judge: Judge }> = ({ judge }) => (
-  <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105">
-    <img src={judge.imageUrl} alt={judge.name} className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-green-200" />
-    <h3 className="text-2xl font-bold">{judge.name}</h3>
-    <p className="text-green-600">{judge.title}</p>
-  </div>
-);
 
 const Judges: React.FC = () => {
   return (
-    <section id="judges" className="py-20 bg-gray-50/50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <div className="mb-4">
-              <SplitText 
-                  tag="h2" 
-                  text="Meet the Judges" 
-                  className="text-5xl font-bold" 
-                  splitType="words" 
-              />
-          </div>
-          <div className="text-lg text-gray-600">
-              <SplitText 
-                  text="Our panel of esteemed industry experts and academics." 
-                  splitType="words" 
-                  delay={20} 
-              />
-          </div>
+    <section id="judges" className="py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <SplitText
+            tag="h2"
+            text="Meet the Judges"
+            className="text-4xl md:text-5xl font-extrabold text-gray-800"
+            splitType="words"
+            triggerOnScroll
+          />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {judgesData.map(judge => (
-            <JudgeCard key={judge.name} judge={judge} />
+          {judgesData.map((judge, index) => (
+            <div key={index} className="text-center">
+              <div className="relative w-48 h-48 mx-auto mb-4">
+                <img src={judge.imageUrl} alt={judge.name} className="rounded-full object-cover w-full h-full shadow-lg" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800">{judge.name}</h3>
+              <p className="text-gray-600">{judge.title}</p>
+            </div>
           ))}
         </div>
       </div>

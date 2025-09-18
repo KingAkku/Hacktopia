@@ -4,58 +4,55 @@ interface CountdownProps {
   targetDate: string;
 }
 
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
-
-const calculateTimeLeft = (targetDate: string): TimeLeft | null => {
-  const difference = +new Date(targetDate) - +new Date();
-  if (difference > 0) {
-    return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
-    };
-  }
-  return null;
-};
-
 const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(calculateTimeLeft(targetDate));
+  const calculateTimeLeft = () => {
+    const difference = +new Date(targetDate) - +new Date();
+    let timeLeft = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    }
+
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft(targetDate));
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearInterval(timer);
-  }, [targetDate]);
+    return () => clearTimeout(timer);
+  });
 
-  if (!timeLeft) {
-    return <div className="text-3xl font-bold text-green-600">The event has started!</div>;
-  }
+  const timerComponents: JSX.Element[] = [];
 
-  const timeParts = [
-    { label: 'Days', value: timeLeft.days },
-    { label: 'Hours', value: timeLeft.hours },
-    { label: 'Minutes', value: timeLeft.minutes },
-    { label: 'Seconds', value: timeLeft.seconds },
-  ];
+  Object.keys(timeLeft).forEach((interval) => {
+    if (!timeLeft[interval as keyof typeof timeLeft] && timeLeft[interval as keyof typeof timeLeft] !== 0) {
+      return;
+    }
+
+    timerComponents.push(
+      <div key={interval} className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-lg shadow-md min-w-[80px]">
+        <div className="text-4xl md:text-5xl font-bold text-green-600">
+          {String(timeLeft[interval as keyof typeof timeLeft]).padStart(2, '0')}
+        </div>
+        <div className="text-sm uppercase text-gray-600 tracking-wider">
+          {interval}
+        </div>
+      </div>
+    );
+  });
 
   return (
-    <div className="flex justify-center items-center space-x-4 md:space-x-8">
-      {timeParts.map(({ label, value }) => (
-        <div key={label} className="text-center p-4 rounded-2xl bg-white/50 shadow-lg w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center border border-gray-200/50">
-          <span className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-500">
-            {String(value).padStart(2, '0')}
-          </span>
-          <span className="text-xs md:text-sm text-gray-500 uppercase tracking-wider">{label}</span>
-        </div>
-      ))}
+    <div className="flex justify-center gap-4 md:gap-8">
+      {timerComponents.length ? timerComponents : <span className="text-2xl font-bold text-green-500">Event has started!</span>}
     </div>
   );
 };
