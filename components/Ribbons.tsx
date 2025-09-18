@@ -18,13 +18,13 @@ interface RibbonsProps {
 
 const Ribbons: React.FC<RibbonsProps> = ({
   colors = ['#22c55e', '#14b8a6', '#6ee7b7', '#0d9488'],
-  baseSpring = 0.03,
+  baseSpring = 0.02,
   baseFriction = 0.9,
   baseThickness = 30,
   offsetFactor = 0.05,
   maxAge = 500,
   pointCount = 50,
-  speedMultiplier = 0.6,
+  speedMultiplier = 0.4,
   enableFade = false,
   enableShaderEffect = false,
   effectAmplitude = 2,
