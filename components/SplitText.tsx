@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -32,8 +33,8 @@ const SplitText: React.FC<SplitTextProps> = ({
   splitType = 'chars',
   from = { opacity: 0, y: 40 },
   to = { opacity: 1, y: 0 },
-  threshold = 0.1,
-  rootMargin = '-100px',
+  threshold = 0.4,
+  rootMargin = '-75px',
   textAlign = 'center',
   tag = 'p',
   onLetterAnimationComplete,
