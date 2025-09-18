@@ -20,6 +20,7 @@ interface SplitTextProps {
   textAlign?: 'left' | 'center' | 'right' | 'justify';
   tag?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   onLetterAnimationComplete?: () => void;
+  triggerOnScroll?: boolean;
 }
 
 const SplitText: React.FC<SplitTextProps> = ({
@@ -35,7 +36,8 @@ const SplitText: React.FC<SplitTextProps> = ({
   rootMargin = '-100px',
   textAlign = 'center',
   tag = 'p',
-  onLetterAnimationComplete
+  onLetterAnimationComplete,
+  triggerOnScroll = true,
 }) => {
   const ref = useRef<HTMLElement | null>(null);
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -65,40 +67,53 @@ const SplitText: React.FC<SplitTextProps> = ({
 
       if(targets.length === 0) return;
 
-      const startPct = (1 - threshold) * 100;
-      const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
-      const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
-      const marginUnit = marginMatch ? marginMatch[2] || 'px' : 'px';
-      const sign =
-        marginValue === 0
-          ? ''
-          : marginValue < 0
-            ? `-=${Math.abs(marginValue)}${marginUnit}`
-            : `+=${marginValue}${marginUnit}`;
-      const start = `top ${startPct}%${sign}`;
+      const animationVars: gsap.TweenVars = {
+        ...to,
+        duration,
+        ease,
+        stagger: delay / 1000,
+        onComplete: () => {
+          onLetterAnimationComplete?.();
+        },
+      };
+
+      if (triggerOnScroll) {
+        const startPct = (1 - threshold) * 100;
+        const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
+        const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
+        const marginUnit = marginMatch ? marginMatch[2] || 'px' : 'px';
+        const sign =
+          marginValue === 0
+            ? ''
+            : marginValue < 0
+              ? `-=${Math.abs(marginValue)}${marginUnit}`
+              : `+=${marginValue}${marginUnit}`;
+        const start = `top ${startPct}%${sign}`;
+
+        animationVars.scrollTrigger = {
+          trigger: el,
+          start,
+          once: true,
+        };
+      } else {
+        animationVars.delay = 0.2; // Small delay for on-load animation
+      }
 
       gsap.fromTo(
         targets,
         { ...from },
-        {
-          ...to,
-          duration,
-          ease,
-          stagger: delay / 1000,
-          scrollTrigger: {
-            trigger: el,
-            start,
-            once: true,
-          },
-          onComplete: () => {
-            onLetterAnimationComplete?.();
-          },
-        }
+        animationVars
       );
 
       return () => {
         if (splitInstance) {
             try {
+                // Ensure all scroll triggers associated with this element are killed
+                ScrollTrigger.getAll().forEach(trigger => {
+                    if (trigger.trigger === el) {
+                        trigger.kill();
+                    }
+                });
                 splitInstance.revert();
             } catch(e) {
                 // Failsafe for hot-reloads
@@ -118,7 +133,8 @@ const SplitText: React.FC<SplitTextProps> = ({
         threshold,
         rootMargin,
         fontsLoaded,
-        onLetterAnimationComplete
+        onLetterAnimationComplete,
+        triggerOnScroll
       ],
       scope: ref
     }

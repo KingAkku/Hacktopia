@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 interface CountdownProps {
@@ -37,7 +36,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   }, [targetDate]);
 
   if (!timeLeft) {
-    return <div className="text-3xl font-bold text-purple-600">The event has started!</div>;
+    return <div className="text-3xl font-bold text-green-600">The event has started!</div>;
   }
 
   const timeParts = [
@@ -51,7 +50,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     <div className="flex justify-center items-center space-x-4 md:space-x-8">
       {timeParts.map(({ label, value }) => (
         <div key={label} className="text-center p-4 rounded-2xl bg-white/50 shadow-lg w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center border border-gray-200/50">
-          <span className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">
+          <span className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-500">
             {String(value).padStart(2, '0')}
           </span>
           <span className="text-xs md:text-sm text-gray-500 uppercase tracking-wider">{label}</span>

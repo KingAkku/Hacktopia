@@ -28,7 +28,7 @@ const About: React.FC = () => {
                 <SplitText 
                     tag="h3"
                     text="The Mission"
-                    className="text-2xl font-bold text-purple-700"
+                    className="text-2xl font-bold text-green-700"
                     textAlign="left"
                     splitType="words"
                 />

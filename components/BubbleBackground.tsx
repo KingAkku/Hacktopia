@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const BubbleBackground: React.FC = () => {
@@ -16,9 +15,9 @@ const BubbleBackground: React.FC = () => {
           animationDuration: `${Math.random() * 15 + 15}s`, // 15s to 30s duration
         };
         const colorClass = [
-          'bg-purple-200/30',
-          'bg-blue-200/30',
-          'bg-indigo-200/30',
+          'bg-green-200/30',
+          'bg-teal-200/30',
+          'bg-emerald-200/30',
         ][i % 3];
 
         return (
