@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
           <SplitText
             tag="h1"
             text="Hacktopia"
-            className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-500"
+            className="text-6xl md:text-8xl font-bold hero-title-hacktopia"
             splitType="words"
             triggerOnScroll={false}
           />
