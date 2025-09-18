@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import type { FAQItem } from '../types';
+import SplitText from './SplitText';
 
 const faqData: FAQItem[] = [
   { question: 'Who can participate in Hacktopia?', answer: 'The hackathon is open to all undergraduate and graduate students from any university. You don\'t have to be from PEC to participate.' },
@@ -43,8 +43,21 @@ const FAQ: React.FC = () => {
     <section id="faq" className="py-20 bg-gray-50/50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-          <p className="text-lg text-gray-600">Got questions? We've got answers.</p>
+            <div className="mb-4">
+                <SplitText 
+                    tag="h2" 
+                    text="Frequently Asked Questions" 
+                    className="text-4xl font-bold" 
+                    splitType="words" 
+                />
+            </div>
+            <div className="text-lg text-gray-600">
+                <SplitText 
+                    text="Got questions? We've got answers." 
+                    splitType="words" 
+                    delay={20}
+                />
+            </div>
         </div>
         <div className="max-w-3xl mx-auto">
           {faqData.map((item, index) => (

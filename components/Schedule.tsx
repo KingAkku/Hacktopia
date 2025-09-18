@@ -1,6 +1,6 @@
-
 import React from 'react';
 import type { ScheduleItem } from '../types';
+import SplitText from './SplitText';
 
 const scheduleData: ScheduleItem[] = [
   { time: '09:00 AM', title: 'Registration & Breakfast', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
@@ -19,8 +19,21 @@ const Schedule: React.FC = () => {
     <section id="schedule" className="py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Event Timeline</h2>
-          <p className="text-lg text-gray-600">A full day packed with innovation and fun.</p>
+          <div className="mb-4">
+              <SplitText 
+                  tag="h2" 
+                  text="Event Timeline" 
+                  className="text-4xl font-bold" 
+                  splitType="words" 
+              />
+          </div>
+          <div className="text-lg text-gray-600">
+              <SplitText 
+                  text="A full day packed with innovation and fun." 
+                  splitType="words" 
+                  delay={20} 
+              />
+          </div>
         </div>
         <div className="relative max-w-2xl mx-auto">
           <div className="absolute left-1/2 w-1 bg-gradient-to-b from-purple-200 to-blue-200 h-full transform -translate-x-1/2"></div>

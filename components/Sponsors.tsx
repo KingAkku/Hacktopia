@@ -1,5 +1,5 @@
-
 import React from 'react';
+import SplitText from './SplitText';
 
 const sponsorsData = [
   { name: 'InnovateX', logoUrl: 'https://picsum.photos/seed/sponsor1/200/100' },
@@ -15,8 +15,21 @@ const Sponsors: React.FC = () => {
     <section id="sponsors" className="py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Our Sponsors</h2>
-          <p className="text-lg text-gray-600">A huge thank you to our partners for making this event possible.</p>
+          <div className="mb-4">
+              <SplitText 
+                  tag="h2" 
+                  text="Our Sponsors" 
+                  className="text-4xl font-bold" 
+                  splitType="words" 
+              />
+          </div>
+          <div className="text-lg text-gray-600">
+              <SplitText 
+                  text="A huge thank you to our partners for making this event possible." 
+                  splitType="words" 
+                  delay={20} 
+              />
+          </div>
         </div>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
           {sponsorsData.map(sponsor => (
