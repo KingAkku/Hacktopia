@@ -23,7 +23,7 @@ const Schedule: React.FC = () => {
               <SplitText 
                   tag="h2" 
                   text="Event Timeline" 
-                  className="text-4xl font-bold" 
+                  className="text-5xl font-bold" 
                   splitType="words" 
               />
           </div>
@@ -35,17 +35,22 @@ const Schedule: React.FC = () => {
               />
           </div>
         </div>
-        <div className="relative max-w-2xl mx-auto">
+        <div className="relative max-w-3xl mx-auto">
           <div className="absolute left-1/2 w-1 bg-gradient-to-b from-green-200 to-teal-200 h-full transform -translate-x-1/2"></div>
           {scheduleData.map((item, index) => (
             <div key={index} className="mb-8 flex justify-between items-center w-full">
-              <div className={`w-5/12 ${index % 2 === 0 ? 'order-1' : 'order-3 text-right'}`}>
+              {/* Time on one side */}
+              <div className={`w-5/12 ${index % 2 === 0 ? 'order-1 text-right' : 'order-3 text-left'}`}>
+                <p className="text-lg font-bold text-green-700">{item.time}</p>
               </div>
+
+              {/* Dot in the middle */}
               <div className="z-10 order-2 flex items-center">
                 <div className="w-6 h-6 rounded-full bg-white border-4 border-green-500 shadow-md"></div>
               </div>
+
+              {/* Card on the other side */}
               <div className={`w-5/12 p-6 bg-white rounded-2xl shadow-lg border border-gray-100 ${index % 2 === 0 ? 'order-3' : 'order-1'}`}>
-                <p className="text-sm font-semibold text-green-600 mb-1">{item.time}</p>
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.description}</p>
               </div>

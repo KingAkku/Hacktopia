@@ -12,8 +12,8 @@ const judgesData: Judge[] = [
 const JudgeCard: React.FC<{ judge: Judge }> = ({ judge }) => (
   <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
     <img src={judge.imageUrl} alt={judge.name} className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-green-200" />
-    <h3 className="text-xl font-bold">{judge.name}</h3>
-    <p className="text-green-600">{judge.title}</p>
+    <h3 className="text-2xl font-bold">{judge.name}</h3>
+    <p className="text-green-600 font-sans">{judge.title}</p>
   </div>
 );
 
@@ -26,7 +26,7 @@ const Judges: React.FC = () => {
               <SplitText 
                   tag="h2" 
                   text="Meet the Judges" 
-                  className="text-4xl font-bold" 
+                  className="text-5xl font-bold" 
                   splitType="words" 
               />
           </div>

@@ -10,19 +10,24 @@ const faqData: FAQItem[] = [
   { question: 'What are the judging criteria?', answer: 'Projects will be judged based on technical complexity, creativity, design, impact on the student community, and the quality of the final presentation.' },
 ];
 
-const FAQAccordionItem: React.FC<{ item: FAQItem; isOpen: boolean; onClick: () => void }> = ({ item, isOpen, onClick }) => {
+const FAQAccordionItem: React.FC<{ item: FAQItem; isOpen: boolean; onClick: () => void; index: number }> = ({ item, isOpen, onClick, index }) => {
     return (
         <div className="border-b border-gray-200 py-4">
             <button
                 className="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800"
                 onClick={onClick}
+                aria-expanded={isOpen}
+                aria-controls={`faq-answer-${index}`}
             >
-                <span>{item.question}</span>
-                <span className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                <span className="pr-4">{item.question}</span>
+                <span className={`transform transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
                     <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                 </span>
             </button>
-            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 mt-4' : 'max-h-0'}`}>
+            <div 
+                id={`faq-answer-${index}`}
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 mt-4' : 'max-h-0'}`}
+            >
                 <p className="text-gray-600">
                     {item.answer}
                 </p>
@@ -47,7 +52,7 @@ const FAQ: React.FC = () => {
                 <SplitText 
                     tag="h2" 
                     text="Frequently Asked Questions" 
-                    className="text-4xl font-bold" 
+                    className="text-5xl font-bold" 
                     splitType="words" 
                 />
             </div>
@@ -62,7 +67,8 @@ const FAQ: React.FC = () => {
         <div className="max-w-3xl mx-auto">
           {faqData.map((item, index) => (
             <FAQAccordionItem 
-                key={index} 
+                key={index}
+                index={index}
                 item={item} 
                 isOpen={openIndex === index}
                 onClick={() => handleClick(index)}

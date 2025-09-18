@@ -19,7 +19,7 @@ const Sponsors: React.FC = () => {
               <SplitText 
                   tag="h2" 
                   text="Our Sponsors" 
-                  className="text-4xl font-bold" 
+                  className="text-5xl font-bold" 
                   splitType="words" 
               />
           </div>

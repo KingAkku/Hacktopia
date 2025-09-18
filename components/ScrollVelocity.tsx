@@ -1,5 +1,4 @@
-
-import React, { useRef, useLayoutEffect, useState } from 'react';
+import React, { useRef, useLayoutEffect, useState, useEffect } from 'react';
 import {
   motion,
   useScroll,
@@ -7,7 +6,6 @@ import {
   useTransform,
   useMotionValue,
   useVelocity,
-  useAnimationFrame,
 } from 'motion/react';
 
 function useElementWidth(ref: React.RefObject<HTMLElement>) {
@@ -42,12 +40,15 @@ interface VelocityTextProps {
     scrollerStyle?: React.CSSProperties;
 }
 
+function wrap(min: number, max: number, v: number): number {
+  const range = max - min;
+  return ((((v - min) % range) + range) % range) + min;
+}
 
 function VelocityText({
     children,
     baseVelocity = 100,
     scrollContainerRef,
-    className,
     damping,
     stiffness,
     numCopies,
@@ -75,30 +76,36 @@ function VelocityText({
     const copyRef = useRef<HTMLSpanElement>(null);
     const copyWidth = useElementWidth(copyRef);
   
-    function wrap(min: number, max: number, v: number): number {
-      const range = max - min;
-      const mod = (((v - min) % range) + range) % range;
-      return mod + min;
-    }
-  
     const x = useTransform(baseX, v => {
       if (copyWidth === 0) return '0px';
+      if (baseVelocity > 0) {
+        return `${wrap(0, -copyWidth, v)}px`;
+      }
       return `${wrap(-copyWidth, 0, v)}px`;
     });
   
-    const directionFactor = useRef(1);
-    useAnimationFrame((_t, delta) => {
-      let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-  
-      if (velocityFactor.get() < 0) {
-        directionFactor.current = -1;
-      } else if (velocityFactor.get() > 0) {
-        directionFactor.current = 1;
-      }
-  
-      moveBy += directionFactor.current * moveBy * velocityFactor.get();
-      baseX.set(baseX.get() + moveBy);
-    });
+    useEffect(() => {
+        let lastTimestamp = performance.now();
+        let frameId: number;
+
+        const animate = (now: number) => {
+            const delta = now - lastTimestamp;
+            lastTimestamp = now;
+
+            const totalVelocity = baseVelocity + (baseVelocity * velocityFactor.get());
+            const moveBy = totalVelocity * (delta / 1000);
+
+            baseX.set(baseX.get() + moveBy);
+            frameId = requestAnimationFrame(animate);
+        };
+
+        frameId = requestAnimationFrame(animate);
+
+        return () => {
+            cancelAnimationFrame(frameId);
+        };
+    }, [baseVelocity, baseX, velocityFactor]);
+
   
     const spans = [];
     for (let i = 0; i < numCopies; i++) {
@@ -155,7 +162,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
       {texts.map((text, index) => (
         <VelocityText
           key={index}
-          baseVelocity={index % 2 !== 0 ? -velocity : velocity}
+          baseVelocity={index % 2 === 0 ? -velocity : velocity}
           scrollContainerRef={scrollContainerRef}
           damping={damping}
           stiffness={stiffness}

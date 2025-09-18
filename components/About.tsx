@@ -10,7 +10,7 @@ const About: React.FC = () => {
                 <SplitText 
                     tag="h2"
                     text="What is Hacktopia?" 
-                    className="text-4xl font-bold"
+                    className="text-5xl font-bold"
                     splitType="words"
                 />
             </div>
@@ -28,7 +28,7 @@ const About: React.FC = () => {
                 <SplitText 
                     tag="h3"
                     text="The Mission"
-                    className="text-2xl font-bold text-green-700"
+                    className="text-3xl font-bold text-green-700"
                     textAlign="left"
                     splitType="words"
                 />
