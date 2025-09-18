@@ -13,7 +13,8 @@
       body, h1, h2, h3, h4, h5, h6 {
         font-family: 'Inter', sans-serif;
       }
-      @keyframes shine {
+      @keyframes shine
+       {
         0% { background-position: 200% 0, 0 0; }
         100% { background-position: -200% 0, 0 0; }
       }
@@ -56,6 +57,101 @@
         animation-name: animate-bubble;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+      }
+
+      /* --- Responsive Styles --- */
+      @media (max-width: 767px) { /* md breakpoint and below */
+        /* General heading size adjustment */
+        .text-5xl {
+          font-size: 2.25rem; /* text-4xl */
+          line-height: 2.5rem;
+        }
+
+        /* Schedule Section */
+        #schedule .relative > .absolute {
+          display: none;
+        }
+        #schedule .relative > div.mb-8 { /* targets each timeline item container */
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          padding: 0;
+          margin-bottom: 0;
+        }
+        #schedule .relative > div.mb-8 > div {
+          width: 100% !important;
+          max-width: 400px;
+        }
+        #schedule .relative > div.mb-8 > .z-10 {
+          display: none;
+        }
+        #schedule .relative > div.mb-8 > .w-5\/12:not(.p-6) {
+          order: 1;
+          text-align: center !important;
+          margin-bottom: 0.25rem;
+        }
+        #schedule .relative > div.mb-8 > .p-6 {
+          order: 2;
+          text-align: left !important;
+          margin-bottom: 2.5rem;
+        }
+
+        /* Prize Pool Section */
+        #prizepool .flex.justify-center.items-end {
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+          margin-top: 2rem;
+        }
+        #prizepool .prize-step {
+          width: 100%;
+          max-width: 350px;
+          height: auto !important; /* override fixed height */
+          padding-top: 2rem;
+          padding-bottom: 2rem;
+          border-radius: 1rem; /* full radius, not just top */
+        }
+        /* Re-order for visual hierarchy */
+        #prizepool .prize-step:nth-child(2) { /* 1st place */
+          order: 1;
+        }
+        #prizepool .prize-step:nth-child(1) { /* 2nd place */
+          order: 2;
+        }
+        #prizepool .prize-step:nth-child(3) { /* 3rd place */
+          order: 3;
+        }
+      }
+
+      @media (max-width: 639px) { /* sm breakpoint and below */
+        .text-7xl {
+          font-size: 3.75rem; /* text-6xl */
+          line-height: 1;
+        }
+        #hero .text-xl {
+            font-size: 1.125rem; /* text-lg */
+        }
+      }
+      
+      @media (max-width: 480px) { /* Widened breakpoint to cover more small devices */
+        /* Hero title on smallest screens */
+        .text-7xl {
+          font-size: 3rem; /* text-5xl */
+        }
+        
+        /* Countdown Timer Responsive Fix */
+        /* Override Tailwind's space-x utility to reduce the gap between items */
+        #hero .flex[class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+        /* Reduce the size of the countdown boxes */
+        #hero .flex[class*="space-x-"] > div[class*="w-24"] {
+            width: 5rem; /* 80px */
+            height: 5rem; /* 80px */
+            padding: 0.5rem;
+        }
       }
     </style>
     <script type="importmap">
