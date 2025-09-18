@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
           <SplitText
             tag="h1"
             text="Hacktopia"
-            className="text-7xl md:text-9xl font-bold hero-title-hacktopia"
+            className="text-5xl md:text-7xl font-bold hero-title-hacktopia"
             splitType="words"
             triggerOnScroll={false}
           />
