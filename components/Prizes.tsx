@@ -12,7 +12,7 @@ const prizeData = [
 
 const PrizeCard: React.FC<{ prize: typeof prizeData[0] }> = ({ prize }) => {
   return (
-    <div className={`prize-card p-8 bg-white rounded-2xl shadow-lg border-t-4 ${prize.borderColor} text-center transition-transform transform hover:scale-105 duration-300`}>
+    <div className={`prize-card p-8 bg-white rounded-2xl shadow-lg border-t-4 ${prize.borderColor} text-center transition-all transform hover:scale-105 hover:shadow-[0_0_30px_#22c55e40] duration-300`}>
       <div className="flex justify-center mb-4">
         <TrophyIcon className={`w-16 h-16 ${prize.color}`} />
       </div>
@@ -51,9 +51,14 @@ const Prizes: React.FC = () => {
               splitType="words" 
             />
           </div>
-          <div className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <div className="text-lg text-gray-600 max-w-3xl mx-auto space-y-2">
             <SplitText 
               text="Compete for glory and a prize pool of ₹5000, plus exclusive swag and networking opportunities!" 
+              splitType="words" 
+              delay={20} 
+            />
+             <SplitText 
+              text="All participants who submit a project will receive a certificate of participation." 
               splitType="words" 
               delay={20} 
             />
