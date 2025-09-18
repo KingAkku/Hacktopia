@@ -51,16 +51,12 @@ const Prizes: React.FC = () => {
               splitType="words" 
             />
           </div>
-          <div className="text-lg text-gray-600 max-w-3xl mx-auto space-y-2">
+          <div className="text-lg text-gray-600 max-w-3xl mx-auto">
             <SplitText 
-              text="Compete for glory and a prize pool of ₹5000, plus exclusive swag and networking opportunities!" 
+              text="Compete for glory and a prize pool of ₹5000! All participants who submit a project will receive a certificate, plus exclusive swag and networking opportunities." 
               splitType="words" 
-              delay={20} 
-            />
-             <SplitText 
-              text="All participants who submit a project will receive a certificate of participation." 
-              splitType="words" 
-              delay={20} 
+              delay={20}
+              className="leading-relaxed"
             />
           </div>
         </div>

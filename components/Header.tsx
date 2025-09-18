@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   return (
     <>
       <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/80 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
-        <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <nav className="container mx-auto px-6 h-20 flex justify-between items-center">
           <a href="#" className="block" aria-label="Hacktopia Home">
             <img src="/Hacktopia.svg" alt="Hacktopia Logo" className="h-8" />
           </a>
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
       </header>
       {/* Mobile Menu Overlay */}
       <div className={`md:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-sm transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-          <div className="container mx-auto px-6 pt-24 flex flex-col items-center space-y-8">
+          <div className="container mx-auto px-6 pt-28 flex flex-col items-center space-y-8">
               {navLinks.map(link => (
                   <a 
                     key={link} 
