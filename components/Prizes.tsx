@@ -11,7 +11,7 @@ const prizeData = [
 
 const PrizeCard: React.FC<{ prize: typeof prizeData[0] }> = ({ prize }) => {
   return (
-    <div className={`prize-card p-8 bg-white rounded-2xl shadow-lg border-t-4 ${prize.borderColor} text-center transition-all transform hover:scale-105 hover:shadow-[0_0_30px_#22c55e40] duration-300`}>
+    <div className={`prize-card p-8 bg-white rounded-2xl shadow-lg border-t-4 ${prize.borderColor} text-center transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-[0_4px_35px_rgba(34,197,94,0.35)]`}>
       <div className="flex justify-center mb-4">
         <TrophyIcon className={`w-16 h-16 ${prize.color}`} />
       </div>
