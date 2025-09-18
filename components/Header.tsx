@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['About', 'Schedule', 'Prizes', 'Judges', 'Sponsors', 'FAQ'];
+  const navLinks = ['About', 'Schedule', 'Prize Pool', 'Judges', 'Sponsors', 'FAQ'];
 
   return (
     <>
@@ -23,7 +23,7 @@ const Header: React.FC = () => {
           </a>
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map(link => (
-              <a key={link} href={`#${link.toLowerCase()}`} className="text-gray-600 hover:text-green-600 transition-colors font-medium">
+              <a key={link} href={`#${link.toLowerCase().replace(/\s+/g, '')}`} className="text-gray-600 hover:text-green-600 transition-colors font-medium">
                 {link}
               </a>
             ))}
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
               {navLinks.map(link => (
                   <a 
                     key={link} 
-                    href={`#${link.toLowerCase()}`} 
+                    href={`#${link.toLowerCase().replace(/\s+/g, '')}`} 
                     className="text-2xl text-gray-700 hover:text-green-600 transition-colors font-semibold"
                     onClick={() => setIsMenuOpen(false)}
                   >
