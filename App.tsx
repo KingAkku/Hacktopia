@@ -1,7 +1,6 @@
 
 import React, { useEffect } from 'react';
 import SmoothScroll from 'smooth-scroll';
-import BubbleBackground from './components/BubbleBackground';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -27,7 +26,6 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-white text-gray-800 relative overflow-x-hidden">
-      <BubbleBackground />
       <div className="relative z-10">
         <Header />
         <main>
