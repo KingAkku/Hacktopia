@@ -10,7 +10,7 @@ const judgesData: Judge[] = [
 ];
 
 const JudgeCard: React.FC<{ judge: Judge }> = ({ judge }) => (
-  <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+  <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105">
     <img src={judge.imageUrl} alt={judge.name} className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-green-200" />
     <h3 className="text-2xl font-bold">{judge.name}</h3>
     <p className="text-green-600">{judge.title}</p>
