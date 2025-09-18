@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Countdown from './Countdown';
 import SplitText from './SplitText';
 import ShinyText from './ShinyText';
@@ -8,10 +8,16 @@ import Ribbons from './Ribbons';
 
 const Hero: React.FC = () => {
   const eventDate = "2025-10-26T09:00:00";
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden">
-      <Ribbons />
+    <section 
+      id="hero" 
+      className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Ribbons isHovered={isHovered} />
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="mb-8">
           <SplitText

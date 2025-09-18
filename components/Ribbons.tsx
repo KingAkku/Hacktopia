@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Renderer, Transform, Vec3, Color, Polyline } from 'ogl';
 
@@ -15,6 +14,7 @@ interface RibbonsProps {
   enableShaderEffect?: boolean;
   effectAmplitude?: number;
   backgroundColor?: number[];
+  isHovered?: boolean;
 }
 
 const Ribbons: React.FC<RibbonsProps> = ({
@@ -29,9 +29,15 @@ const Ribbons: React.FC<RibbonsProps> = ({
   enableFade = false,
   enableShaderEffect = false,
   effectAmplitude = 2,
-  backgroundColor = [0, 0, 0, 0]
+  backgroundColor = [0, 0, 0, 0],
+  isHovered = false,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isHoveredRef = useRef(isHovered);
+
+  useEffect(() => {
+    isHoveredRef.current = isHovered;
+  }, [isHovered]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -207,11 +213,22 @@ const Ribbons: React.FC<RibbonsProps> = ({
     const tmp = new Vec3();
     let frameId: number;
     let lastTime = performance.now();
+    
+    const lerp = (a: number, b: number, t: number) => a * (1 - t) + b * t;
+    const currentSpeed = { value: speedMultiplier };
+    const currentOpacity = { value: 1.0 };
+    
     function update() {
       frameId = requestAnimationFrame(update);
       const currentTime = performance.now();
       const dt = currentTime - lastTime;
       lastTime = currentTime;
+
+      const targetSpeed = isHoveredRef.current ? speedMultiplier * 0.3 : speedMultiplier;
+      const targetOpacity = isHoveredRef.current ? 0.7 : 1.0;
+
+      currentSpeed.value = lerp(currentSpeed.value, targetSpeed, 0.05);
+      currentOpacity.value = lerp(currentOpacity.value, targetOpacity, 0.05);
 
       lines.forEach(line => {
         tmp.copy(mouse).add(line.mouseOffset).sub(line.points[0]).multiply(line.spring);
@@ -221,7 +238,7 @@ const Ribbons: React.FC<RibbonsProps> = ({
         for (let i = 1; i < line.points.length; i++) {
           if (isFinite(maxAge) && maxAge > 0) {
             const segmentDelay = maxAge / (line.points.length - 1);
-            const alpha = Math.min(1, (dt * speedMultiplier) / segmentDelay);
+            const alpha = Math.min(1, (dt * currentSpeed.value) / segmentDelay);
             line.points[i].lerp(line.points[i - 1], alpha);
           } else {
             line.points[i].lerp(line.points[i - 1], 0.9);
@@ -229,6 +246,9 @@ const Ribbons: React.FC<RibbonsProps> = ({
         }
         if (line.polyline.mesh.program.uniforms.uTime) {
           line.polyline.mesh.program.uniforms.uTime.value = currentTime * 0.001;
+        }
+        if (line.polyline.mesh.program.uniforms.uOpacity) {
+            line.polyline.mesh.program.uniforms.uOpacity.value = currentOpacity.value;
         }
         line.polyline.updateGeometry();
       });

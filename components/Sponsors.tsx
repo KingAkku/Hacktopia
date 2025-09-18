@@ -2,12 +2,12 @@ import React from 'react';
 import SplitText from './SplitText';
 
 const sponsorsData = [
-  { name: 'InnovateX', logoUrl: 'https://picsum.photos/seed/sponsor1/200/100' },
-  { name: 'Future Labs', logoUrl: 'https://picsum.photos/seed/sponsor2/200/100' },
-  { name: 'Tech Solutions', logoUrl: 'https://picsum.photos/seed/sponsor3/200/100' },
-  { name: 'Code Academy', logoUrl: 'https://picsum.photos/seed/sponsor4/200/100' },
-  { name: 'Digital Ocean', logoUrl: 'https://picsum.photos/seed/sponsor5/200/100' },
-  { name: 'GitHub', logoUrl: 'https://picsum.photos/seed/sponsor6/200/100' },
+  { name: 'InnovateX', logoUrl: 'https://placehold.co/200x100/e2e8f0/cbd5e1?text=InnovateX' },
+  { name: 'Future Labs', logoUrl: 'https://placehold.co/200x100/e2e8f0/cbd5e1?text=Future+Labs' },
+  { name: 'Tech Solutions', logoUrl: 'https://placehold.co/200x100/e2e8f0/cbd5e1?text=Tech+Solutions' },
+  { name: 'Code Academy', logoUrl: 'https://placehold.co/200x100/e2e8f0/cbd5e1?text=Code+Academy' },
+  { name: 'Digital Ocean', logoUrl: 'https://placehold.co/200x100/e2e8f0/cbd5e1?text=Digital+Ocean' },
+  { name: 'GitHub', logoUrl: 'https://placehold.co/200x100/e2e8f0/cbd5e1?text=GitHub' },
 ];
 
 const Sponsors: React.FC = () => {

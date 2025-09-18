@@ -54,7 +54,7 @@ const About: React.FC = () => {
           </div>
           <div>
             <img 
-              src="https://picsum.photos/seed/hackathon/600/400" 
+              src="https://placehold.co/600x400/e2e8f0/cbd5e1?text=Collaboration" 
               alt="Students collaborating" 
               className="rounded-2xl shadow-2xl w-full h-full object-cover"
             />
