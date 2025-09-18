@@ -1,69 +1,78 @@
 import React, { useState } from 'react';
-import { FAQItem } from '../types';
+import type { FAQItem } from '../types';
 import SplitText from './SplitText';
 
 const faqData: FAQItem[] = [
-  {
-    question: 'Who can participate in CodeFest 2024?',
-    answer: 'Anyone with a passion for technology is welcome! This includes students, professionals, designers, and developers. You can participate solo or in a team of up to 4 members.',
-  },
-  {
-    question: 'Is the event free?',
-    answer: 'Yes, CodeFest 2024 is completely free for all accepted participants. We provide the venue, food, drinks, and swag thanks to our amazing sponsors.',
-  },
-  {
-    question: 'What should I bring?',
-    answer: 'You should bring your laptop, charger, any hardware you might need for your project, and a positive attitude! We recommend comfortable clothes and a sleeping bag if you plan to code through the night.',
-  },
-  {
-    question: "I don't have a team. Can I still participate?",
-    answer: "Absolutely! We'll have a team formation event right after the opening ceremony. You can pitch your ideas and meet other participants looking for a team.",
-  },
-  {
-    question: 'What are the judging criteria?',
-    answer: 'Projects will be judged based on technical complexity, creativity, design, and real-world applicability. A detailed rubric will be provided at the beginning of the event.',
-  },
+  { question: 'Who can participate in Hacktopia?', answer: 'The hackathon is open to all undergraduate and graduate students from any university. You don\'t have to be from PEC to participate.' },
+  { question: 'Do I need a team to register?', answer: 'You can register as an individual or as a team of up to 4 members. We will have a team formation session at the beginning of the event for individuals looking for a team.' },
+  { question: 'What is the cost to participate?', answer: 'Absolutely nothing! Participation is free for all selected students, and includes meals, snacks, and swag.' },
+  { question: 'What should I bring to the event?', answer: 'You should bring your laptop, chargers, any necessary hardware for your project, and a valid student ID. Most importantly, bring your ideas and enthusiasm!' },
+  { question: 'What are the judging criteria?', answer: 'Projects will be judged based on technical complexity, creativity, design, impact on the student community, and the quality of the final presentation.' },
 ];
+
+const FAQAccordionItem: React.FC<{ item: FAQItem; isOpen: boolean; onClick: () => void; index: number }> = ({ item, isOpen, onClick, index }) => {
+    return (
+        <div className="border-b border-gray-200 py-4">
+            <button
+                className="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800"
+                onClick={onClick}
+                aria-expanded={isOpen}
+                aria-controls={`faq-answer-${index}`}
+            >
+                <span className="pr-4">{item.question}</span>
+                <span className={`transform transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                </span>
+            </button>
+            <div 
+                id={`faq-answer-${index}`}
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 mt-4' : 'max-h-0'}`}
+            >
+                <p className="text-gray-600">
+                    {item.answer}
+                </p>
+            </div>
+        </div>
+    );
+};
+
 
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleFAQ = (index: number) => {
+  const handleClick = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <SplitText
-            tag="h2"
-            text="Frequently Asked Questions"
-            className="text-5xl font-extrabold text-gray-800"
-            splitType="words"
-            triggerOnScroll
-          />
+    <section id="faq" className="py-20 bg-gray-50/50">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-12">
+            <div className="mb-4">
+                <SplitText 
+                    tag="h2" 
+                    text="Frequently Asked Questions" 
+                    className="text-5xl font-bold" 
+                    splitType="words" 
+                />
+            </div>
+            <div className="text-lg text-gray-600">
+                <SplitText 
+                    text="Got questions? We've got answers." 
+                    splitType="words" 
+                    delay={20}
+                />
+            </div>
         </div>
         <div className="max-w-3xl mx-auto">
           {faqData.map((item, index) => (
-            <div key={index} className="border-b">
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full text-left py-6 flex justify-between items-center"
-              >
-                <span className="text-lg font-semibold text-gray-800">{item.question}</span>
-                <span className={`transform transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
-                  <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                </span>
-              </button>
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-96' : 'max-h-0'}`}
-              >
-                <p className="pb-6 text-gray-600">
-                  {item.answer}
-                </p>
-              </div>
-            </div>
+            <FAQAccordionItem 
+                key={index}
+                index={index}
+                item={item} 
+                isOpen={openIndex === index}
+                onClick={() => handleClick(index)}
+            />
           ))}
         </div>
       </div>

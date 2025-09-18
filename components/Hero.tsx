@@ -6,56 +6,47 @@ import CalendarIcon from './icons/CalendarIcon';
 import LocationIcon from './icons/LocationIcon';
 
 const Hero: React.FC = () => {
+  const eventDate = "2025-09-25T09:00:00";
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SplitText
-          tag="h1"
-          text="Welcome to CodeFest 2024"
-          className="text-7xl font-extrabold text-gray-800 mb-4"
-          splitType="words"
-          from={{ opacity: 0, y: 50, scale: 0.8 }}
-          to={{ opacity: 1, y: 0, scale: 1 }}
-          duration={0.8}
-          delay={50}
-          ease="back.out(1.7)"
-        />
-        <SplitText
-          tag="p"
-          text="Innovate. Collaborate. Create. The future is in your hands."
-          className="text-2xl text-gray-600 mb-8"
-          splitType="words"
-          from={{ opacity: 0, y: 20 }}
-          to={{ opacity: 1, y: 0 }}
-          delay={20}
-          duration={0.5}
-          ease="power2.out"
-        />
+    <section 
+      id="hero" 
+      className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden"
+    >
+      <div className="relative z-10 container mx-auto px-6 text-center">
+        <div className="mb-8">
+          <SplitText
+            tag="h1"
+            text="Hacktopia"
+            className="text-7xl md:text-9xl font-bold hero-title-hacktopia"
+            splitType="words"
+            triggerOnScroll={false}
+          />
+        </div>
+        <div className="mb-8 text-xl md:text-2xl text-gray-700">
+            <ShinyText>
+                Innovate. Collaborate. Create.
+            </ShinyText>
+        </div>
         
-        <div className="flex flex-row items-center justify-center gap-8 mb-12 text-gray-700">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 text-gray-600 mb-12">
+          <div className="flex items-center space-x-2">
             <CalendarIcon className="w-6 h-6 text-green-500" />
-            <span className="font-semibold">October 25-27, 2024</span>
+            <span>September 25, 2025</span>
           </div>
-          <div className="flex items-center gap-2">
-            <LocationIcon className="w-6 h-6 text-green-500" />
-            <span className="font-semibold">Innovation Hub, Tech Valley</span>
+          <div className="flex items-center space-x-2">
+            <LocationIcon className="w-6 h-6 text-teal-500" />
+            <span>College of Engineering, Pathanapuram</span>
           </div>
         </div>
         
         <div className="mb-12">
-          <a
-            href="#register"
-            className="bg-green-500 text-white font-bold py-4 px-10 text-lg rounded-full hover:bg-green-600 transition-all transform hover:scale-105 inline-block"
-          >
-            <ShinyText>Join the Challenge</ShinyText>
-          </a>
+            <a href="#register" className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold px-10 py-4 rounded-full text-lg hover:scale-105 transform transition-transform duration-300 shadow-2xl">
+              Register Your Spot!
+            </a>
         </div>
-
-        <div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">Event Starts In</h3>
-          <Countdown targetDate="2024-10-25T09:00:00" />
-        </div>
+        
+        <Countdown targetDate={eventDate} />
       </div>
     </section>
   );

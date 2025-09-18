@@ -3,24 +3,62 @@ import SplitText from './SplitText';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-gray-50/50">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <SplitText
-            tag="h2"
-            text="About CodeFest 2024"
-            className="text-5xl font-extrabold text-gray-800"
-            splitType="words"
-            triggerOnScroll
-          />
+            <div className="mb-4">
+                <SplitText 
+                    tag="h2"
+                    text="What is Hacktopia?" 
+                    className="text-5xl font-bold"
+                    splitType="words"
+                />
+            </div>
+            <div className="text-lg text-gray-600 max-w-3xl mx-auto">
+                <SplitText 
+                    text="A launchpad for student innovators to tackle the challenges that matter most to them."
+                    splitType="words"
+                    delay={20}
+                />
+            </div>
         </div>
-        <div className="max-w-4xl mx-auto text-center text-lg text-gray-600 space-y-6">
-          <p>
-            CodeFest 2024 is a premier 48-hour hackathon designed to bring together the brightest minds in technology. Developers, designers, and innovators from around the globe will converge to tackle real-world challenges, build groundbreaking projects, and push the boundaries of what's possible with code.
-          </p>
-          <p>
-            Whether you're a seasoned professional or a student just starting your journey, CodeFest offers an unparalleled opportunity to learn, network with industry leaders, and showcase your skills. Join us for a weekend of intense coding, creative problem-solving, and unforgettable experiences.
-          </p>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="p-8 bg-white rounded-2xl shadow-xl border border-gray-100">
+            <div className="mb-4">
+                <SplitText 
+                    tag="h3"
+                    text="The Mission"
+                    className="text-3xl font-bold text-green-700"
+                    textAlign="left"
+                    splitType="words"
+                />
+            </div>
+            <div className="text-gray-600 leading-relaxed mb-4">
+                <SplitText
+                    text="Students face unique challenges every day, from academic hurdles to campus life complexities. Hacktopia is a one-day intensive hackathon where you, the students, identify a pressing problem within your community and build a tangible solution from scratch."
+                    textAlign="left"
+                    splitType="words"
+                    delay={10}
+                    tag="p"
+                />
+            </div>
+            <div className="text-gray-600 leading-relaxed">
+                 <SplitText
+                    text="Whether it's an app to streamline study groups, a platform for mental wellness, or a tool to reduce campus waste, we want to see your brilliant ideas come to life. Bring your creativity, coding skills, and collaborative spirit!"
+                    textAlign="left"
+                    splitType="words"
+                    delay={10}
+                    tag="p"
+                />
+            </div>
+          </div>
+          <div>
+            <img 
+              src="https://placehold.co/600x400/e2e8f0/cbd5e1?text=Collaboration" 
+              alt="Students collaborating" 
+              className="rounded-2xl shadow-2xl w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>
