@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Renderer, Transform, Vec3, Color, Polyline } from 'ogl';
 
@@ -36,7 +37,8 @@ const Ribbons: React.FC<RibbonsProps> = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const renderer = new Renderer({ dpr: window.devicePixelRatio || 2, alpha: true });
+    const dpr = window.devicePixelRatio || 2;
+    const renderer = new Renderer({ dpr, alpha: true });
     const gl = renderer.gl;
     if (Array.isArray(backgroundColor) && backgroundColor.length === 4) {
       gl.clearColor(backgroundColor[0], backgroundColor[1], backgroundColor[2], backgroundColor[3]);
@@ -167,6 +169,7 @@ const Ribbons: React.FC<RibbonsProps> = ({
           uThickness: { value: thickness },
           uOpacity: { value: 1.0 },
           uTime: { value: 0.0 },
+          uDPR: { value: dpr },
           uEnableShaderEffect: { value: enableShaderEffect ? 1.0 : 0.0 },
           uEffectAmplitude: { value: effectAmplitude },
           uEnableFade: { value: enableFade ? 1.0 : 0.0 }
