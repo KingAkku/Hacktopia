@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,23 +122,8 @@
           order: 3;
         }
       }
-
-      @media (max-width: 639px) { /* sm breakpoint and below */
-        .text-7xl {
-          font-size: 2.5rem; /* Further reduced from 3rem */
-          line-height: 1;
-        }
-        #hero .text-xl {
-            font-size: 1.125rem; /* text-lg */
-        }
-      }
       
       @media (max-width: 480px) { /* Widened breakpoint to cover more small devices */
-        /* Hero title on smallest screens */
-        .text-7xl {
-          font-size: 2rem; /* Further reduced from 2.5rem for very small screens */
-        }
-        
         /* Countdown Timer Responsive Fix */
         /* Override Tailwind's space-x utility to reduce the gap between items */
         #hero .flex[class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
@@ -153,6 +137,13 @@
             height: 5rem; /* 80px */
             padding: 0.5rem;
         }
+      }
+
+      /* Fluid hero title for mobile */
+      .hero-title-hacktopia {
+        /* font-size is fluid between 2.5rem and 4.5rem on mobile viewports */
+        font-size: clamp(2.5rem, 12vw, 4.5rem);
+        line-height: 1;
       }
     </style>
     <script type="importmap">

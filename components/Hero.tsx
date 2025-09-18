@@ -13,12 +13,12 @@ const Hero: React.FC = () => {
       id="hero" 
       className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden"
     >
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <div className="relative z-10 container mx-auto px-5 text-center">
         <div className="mb-8">
           <SplitText
             tag="h1"
             text="Hacktopia"
-            className="text-5xl md:text-9xl font-bold hero-title-hacktopia"
+            className="md:text-9xl font-bold hero-title-hacktopia"
             splitType="words"
             triggerOnScroll={false}
           />
