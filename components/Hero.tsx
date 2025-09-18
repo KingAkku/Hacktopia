@@ -6,7 +6,7 @@ import CalendarIcon from './icons/CalendarIcon';
 import LocationIcon from './icons/LocationIcon';
 
 const Hero: React.FC = () => {
-  const eventDate = "2025-10-26T09:00:00";
+  const eventDate = "2025-09-25T09:00:00";
 
   return (
     <section 
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 text-gray-600 mb-12">
           <div className="flex items-center space-x-2">
             <CalendarIcon className="w-6 h-6 text-green-500" />
-            <span>October 26, 2025</span>
+            <span>September 25, 2025</span>
           </div>
           <div className="flex items-center space-x-2">
             <LocationIcon className="w-6 h-6 text-teal-500" />
