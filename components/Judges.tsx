@@ -17,12 +17,12 @@ const Judges: React.FC = () => {
           <SplitText
             tag="h2"
             text="Meet the Judges"
-            className="text-4xl md:text-5xl font-extrabold text-gray-800"
+            className="text-5xl font-extrabold text-gray-800"
             splitType="words"
             triggerOnScroll
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           {judgesData.map((judge, index) => (
             <div key={index} className="text-center">
               <div className="relative w-48 h-48 mx-auto mb-4">

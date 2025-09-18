@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
         <SplitText
           tag="h1"
           text="Welcome to CodeFest 2024"
-          className="text-5xl md:text-7xl font-extrabold text-gray-800 mb-4"
+          className="text-7xl font-extrabold text-gray-800 mb-4"
           splitType="words"
           from={{ opacity: 0, y: 50, scale: 0.8 }}
           to={{ opacity: 1, y: 0, scale: 1 }}
@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
         <SplitText
           tag="p"
           text="Innovate. Collaborate. Create. The future is in your hands."
-          className="text-lg md:text-2xl text-gray-600 mb-8"
+          className="text-2xl text-gray-600 mb-8"
           splitType="words"
           from={{ opacity: 0, y: 20 }}
           to={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
           ease="power2.out"
         />
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 mb-12 text-gray-700">
+        <div className="flex flex-row items-center justify-center gap-8 mb-12 text-gray-700">
           <div className="flex items-center gap-2">
             <CalendarIcon className="w-6 h-6 text-green-500" />
             <span className="font-semibold">October 25-27, 2024</span>

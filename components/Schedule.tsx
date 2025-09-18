@@ -21,7 +21,7 @@ const Schedule: React.FC = () => {
           <SplitText
             tag="h2"
             text="Event Schedule"
-            className="text-4xl md:text-5xl font-extrabold text-gray-800"
+            className="text-5xl font-extrabold text-gray-800"
             splitType="words"
             triggerOnScroll
           />

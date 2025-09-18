@@ -9,7 +9,7 @@ const About: React.FC = () => {
           <SplitText
             tag="h2"
             text="About CodeFest 2024"
-            className="text-4xl md:text-5xl font-extrabold text-gray-800"
+            className="text-5xl font-extrabold text-gray-800"
             splitType="words"
             triggerOnScroll
           />

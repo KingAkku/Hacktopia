@@ -33,7 +33,7 @@ const Sponsors: React.FC = () => {
           <SplitText
             tag="h2"
             text="Our Sponsors"
-            className="text-4xl md:text-5xl font-extrabold text-gray-800"
+            className="text-5xl font-extrabold text-gray-800"
             splitType="words"
             triggerOnScroll
           />
@@ -41,7 +41,7 @@ const Sponsors: React.FC = () => {
         {tiers.map(tier => (
           <div key={tier} className="mb-12">
             <h3 className="text-2xl font-bold text-center text-green-600 capitalize mb-8">{tier}</h3>
-            <div className="flex justify-center items-center flex-wrap gap-8 md:gap-12">
+            <div className="flex justify-center items-center flex-wrap gap-12">
               {sponsorsData
                 .filter(sponsor => sponsor.tier === tier)
                 .map((sponsor, index) => (

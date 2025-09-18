@@ -38,12 +38,12 @@ const Prizes: React.FC = () => {
           <SplitText
             tag="h2"
             text="Prizes & Recognition"
-            className="text-4xl md:text-5xl font-extrabold text-gray-800"
+            className="text-5xl font-extrabold text-gray-800"
             splitType="words"
             triggerOnScroll
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           {prizes.map((prize, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300 flex flex-col">
               <div className="mb-4">
