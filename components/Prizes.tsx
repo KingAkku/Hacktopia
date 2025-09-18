@@ -1,5 +1,4 @@
 import React from 'react';
-import SplitText from './SplitText';
 import TrophyIcon from './icons/TrophyIcon';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -44,20 +43,14 @@ const Prizes: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="mb-4">
-            <SplitText 
-              tag="h2" 
-              text="Prizes & Recognition" 
-              className="text-5xl font-bold" 
-              splitType="words" 
-            />
+            <h2 className="text-5xl font-bold">
+              Prizes & Recognition
+            </h2>
           </div>
           <div className="text-lg text-gray-600 max-w-3xl mx-auto">
-            <SplitText 
-              text="Compete for glory and a prize pool of ₹5000! All participants who submit a project will receive a certificate, plus exclusive swag and networking opportunities." 
-              splitType="words" 
-              delay={20}
-              className="leading-relaxed"
-            />
+            <p className="leading-relaxed">
+              Compete for glory and a prize pool of ₹5000! All participants who submit a project will receive a certificate, plus exclusive swag and networking opportunities.
+            </p>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
