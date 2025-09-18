@@ -14,7 +14,6 @@ interface RibbonsProps {
   enableShaderEffect?: boolean;
   effectAmplitude?: number;
   backgroundColor?: number[];
-  isHovered?: boolean;
 }
 
 const Ribbons: React.FC<RibbonsProps> = ({
@@ -30,14 +29,8 @@ const Ribbons: React.FC<RibbonsProps> = ({
   enableShaderEffect = false,
   effectAmplitude = 2,
   backgroundColor = [0, 0, 0, 0],
-  isHovered = false,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isHoveredRef = useRef(isHovered);
-
-  useEffect(() => {
-    isHoveredRef.current = isHovered;
-  }, [isHovered]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -57,7 +50,6 @@ const Ribbons: React.FC<RibbonsProps> = ({
     gl.canvas.style.left = '0';
     gl.canvas.style.width = '100%';
     gl.canvas.style.height = '100%';
-    gl.canvas.style.zIndex = '-1';
     container.appendChild(gl.canvas);
 
     const scene = new Transform();
@@ -131,10 +123,7 @@ const Ribbons: React.FC<RibbonsProps> = ({
     `;
 
     function resize() {
-      if (!container) return;
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-      renderer.setSize(width, height);
+      renderer.setSize(window.innerWidth, window.innerHeight);
       lines.forEach(line => line.polyline.resize());
     }
     window.addEventListener('resize', resize);
@@ -190,45 +179,31 @@ const Ribbons: React.FC<RibbonsProps> = ({
     const mouse = new Vec3();
     function updateMouse(e: MouseEvent | TouchEvent) {
       let x: number, y: number;
-      if (!container) return;
-      const rect = container.getBoundingClientRect();
       if ('changedTouches' in e && e.changedTouches.length) {
-        x = e.changedTouches[0].clientX - rect.left;
-        y = e.changedTouches[0].clientY - rect.top;
+        x = e.changedTouches[0].clientX;
+        y = e.changedTouches[0].clientY;
       } else if (e instanceof MouseEvent) {
-        x = e.clientX - rect.left;
-        y = e.clientY - rect.top;
+        x = e.clientX;
+        y = e.clientY;
       } else {
-        x = 0;
-        y = 0;
+        x = window.innerWidth / 2;
+        y = window.innerHeight / 2;
       }
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-      mouse.set((x / width) * 2 - 1, (y / height) * -2 + 1, 0);
+      mouse.set((x / window.innerWidth) * 2 - 1, (y / window.innerHeight) * -2 + 1, 0);
     }
-    container.addEventListener('mousemove', updateMouse);
-    container.addEventListener('touchstart', updateMouse);
-    container.addEventListener('touchmove', updateMouse);
+    window.addEventListener('mousemove', updateMouse, { passive: true });
+    window.addEventListener('touchstart', updateMouse, { passive: true });
+    window.addEventListener('touchmove', updateMouse, { passive: true });
 
     const tmp = new Vec3();
     let frameId: number;
     let lastTime = performance.now();
-    
-    const lerp = (a: number, b: number, t: number) => a * (1 - t) + b * t;
-    const currentSpeed = { value: speedMultiplier };
-    const currentOpacity = { value: 1.0 };
     
     function update() {
       frameId = requestAnimationFrame(update);
       const currentTime = performance.now();
       const dt = currentTime - lastTime;
       lastTime = currentTime;
-
-      const targetSpeed = isHoveredRef.current ? speedMultiplier * 0.3 : speedMultiplier;
-      const targetOpacity = isHoveredRef.current ? 0.7 : 1.0;
-
-      currentSpeed.value = lerp(currentSpeed.value, targetSpeed, 0.05);
-      currentOpacity.value = lerp(currentOpacity.value, targetOpacity, 0.05);
 
       lines.forEach(line => {
         tmp.copy(mouse).add(line.mouseOffset).sub(line.points[0]).multiply(line.spring);
@@ -238,7 +213,7 @@ const Ribbons: React.FC<RibbonsProps> = ({
         for (let i = 1; i < line.points.length; i++) {
           if (isFinite(maxAge) && maxAge > 0) {
             const segmentDelay = maxAge / (line.points.length - 1);
-            const alpha = Math.min(1, (dt * currentSpeed.value) / segmentDelay);
+            const alpha = Math.min(1, (dt * speedMultiplier) / segmentDelay);
             line.points[i].lerp(line.points[i - 1], alpha);
           } else {
             line.points[i].lerp(line.points[i - 1], 0.9);
@@ -246,9 +221,6 @@ const Ribbons: React.FC<RibbonsProps> = ({
         }
         if (line.polyline.mesh.program.uniforms.uTime) {
           line.polyline.mesh.program.uniforms.uTime.value = currentTime * 0.001;
-        }
-        if (line.polyline.mesh.program.uniforms.uOpacity) {
-            line.polyline.mesh.program.uniforms.uOpacity.value = currentOpacity.value;
         }
         line.polyline.updateGeometry();
       });
@@ -259,9 +231,9 @@ const Ribbons: React.FC<RibbonsProps> = ({
 
     return () => {
       window.removeEventListener('resize', resize);
-      container.removeEventListener('mousemove', updateMouse);
-      container.removeEventListener('touchstart', updateMouse);
-      container.removeEventListener('touchmove', updateMouse);
+      window.removeEventListener('mousemove', updateMouse);
+      window.removeEventListener('touchstart', updateMouse);
+      window.removeEventListener('touchmove', updateMouse);
       cancelAnimationFrame(frameId);
       if (gl.canvas && gl.canvas.parentNode === container) {
         container.removeChild(gl.canvas);
@@ -282,7 +254,7 @@ const Ribbons: React.FC<RibbonsProps> = ({
     backgroundColor
   ]);
 
-  return <div ref={containerRef} className="absolute inset-0 w-full h-full -z-10" />;
+  return <div ref={containerRef} className="fixed inset-0 w-full h-full pointer-events-none z-[999]" />;
 };
 
 export default Ribbons;
