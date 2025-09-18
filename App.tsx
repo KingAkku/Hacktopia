@@ -8,6 +8,7 @@ import Judges from './components/Judges';
 import Sponsors from './components/Sponsors';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import BubbleBackground from './components/BubbleBackground';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-white text-gray-800 relative overflow-x-hidden">
+      <BubbleBackground />
       <div className="relative z-10">
         <Header />
         <main>
