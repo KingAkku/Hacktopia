@@ -3,15 +3,12 @@ import type { ScheduleItem } from '../types';
 import SplitText from './SplitText';
 
 const scheduleData: ScheduleItem[] = [
-  { time: '09:00 AM', title: 'Registration & Breakfast', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
-  { time: '10:00 AM', title: 'Opening Ceremony', description: 'Kick-off talks, keynote address, and official start of the hackathon.' },
-  { time: '10:30 AM', title: 'Hacking Begins!', description: 'Time to start building. Mentors will be available to help.' },
-  { time: '01:00 PM', title: 'Lunch Break', description: 'Refuel with a delicious lunch on us.' },
-  { time: '04:00 PM', title: 'Workshop Session', description: 'Optional workshop on "Pitching Your Idea Effectively".' },
-  { time: '06:00 PM', title: 'Hacking Ends & Submissions Due', description: 'Pencils down! Finalize your projects and submit them for judging.' },
-  { time: '06:30 PM', title: 'Dinner & Project Expo', description: 'Enjoy dinner while judges review the submissions.' },
-  { time: '08:00 PM', title: 'Finalist Pitches', description: 'The top 5 teams present their projects on stage.' },
-  { time: '09:00 PM', title: 'Awards & Closing Ceremony', description: 'Announcement of winners and closing remarks.' },
+  { time: '09:00 AM', title: 'Registration & Welcome', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
+  { time: '09:30 AM', title: 'Kick-off & Hacking Begins', description: 'Opening remarks, theme reveal, and the official start of the hackathon.' },
+  { time: '12:30 PM', title: 'Working Lunch', description: 'Refuel with a delicious lunch on us, served at the hacking stations.' },
+  { time: '03:00 PM', title: 'Hacking Ends & Submissions', description: 'Pencils down! Finalize your projects and submit them for judging.' },
+  { time: '03:15 PM', title: 'Project Expo & Judging', description: 'Showcase your work to the judges and fellow participants.' },
+  { time: '04:00 PM', title: 'Awards & Closing Ceremony', description: 'Celebrating the amazing projects and announcing the winners of Hacktopia!' },
 ];
 
 const Schedule: React.FC = () => {
@@ -29,7 +26,7 @@ const Schedule: React.FC = () => {
           </div>
           <div className="text-lg text-gray-600">
               <SplitText 
-                  text="A full day packed with innovation and fun." 
+                  text="An action-packed day of innovation and fun." 
                   splitType="words" 
                   delay={20} 
               />
