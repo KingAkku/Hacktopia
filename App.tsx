@@ -6,7 +6,6 @@ import About from './components/About';
 import Schedule from './components/Schedule';
 import PrizePool from './components/PrizePool';
 import Judges from './components/Judges';
-import Sponsors from './components/Sponsors';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import BubbleBackground from './components/BubbleBackground';
@@ -36,7 +35,6 @@ const App: React.FC = () => {
           <Schedule />
           <PrizePool />
           <Judges />
-          <Sponsors />
           <FAQ />
         </main>
         <Footer />

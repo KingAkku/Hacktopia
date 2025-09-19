@@ -11,12 +11,6 @@ export interface Judge {
   imageUrl: string;
 }
 
-export interface Sponsor {
-  name: string;
-  logoUrl: string;
-  tier: 'platinum' | 'gold' | 'silver';
-}
-
 export interface FAQItem {
   question: string;
   answer: string;
