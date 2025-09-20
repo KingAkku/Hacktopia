@@ -1,6 +1,9 @@
 import React from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
+import FirstPlaceIcon from './icons/FirstPlaceIcon';
+import SecondPlaceIcon from './icons/SecondPlaceIcon';
+import ThirdPlaceIcon from './icons/ThirdPlaceIcon';
 
 const PrizePool: React.FC = () => {
     const container = React.useRef<HTMLElement>(null);
@@ -19,11 +22,11 @@ const PrizePool: React.FC = () => {
         });
     }, { scope: container });
 
-  const prizes = [
-    { rank: '2nd', amount: '₹1500', height: 'h-48' },
-    { rank: '1st', amount: '₹2500', height: 'h-64' },
-    { rank: '3rd', amount: '₹1000', height: 'h-40' },
-  ];
+  const prizes = {
+    first: { amount: '₹3000', height: 'h-64', Icon: FirstPlaceIcon, className: 'bg-gradient-to-t from-yellow-400 to-amber-300 text-slate-800' },
+    second: { amount: '₹1500', height: 'h-48', Icon: SecondPlaceIcon, className: 'bg-gradient-to-t from-slate-300 to-slate-100 text-slate-800' },
+    third: { amount: '₹500', height: 'h-40', Icon: ThirdPlaceIcon, className: 'bg-gradient-to-t from-amber-600 to-amber-400 text-white' }
+  };
 
   return (
     <section id="prizepool" ref={container} className="py-20 bg-white">
@@ -43,18 +46,20 @@ const PrizePool: React.FC = () => {
         
         <div className="max-w-4xl mx-auto mt-20">
           <div className="flex justify-center items-end gap-2 md:gap-4">
-            {/* Reorder for visual stair effect */}
-            <div className={`prize-step flex-1 ${prizes[0].height} flex flex-col justify-center items-center p-6 rounded-t-2xl text-slate-800 shadow-2xl bg-gradient-to-t from-slate-100 to-white`}>
-                <span className="text-4xl md:text-5xl font-bold">{prizes[0].rank}</span>
-                <span className="text-xl md:text-2xl font-semibold mt-2">{prizes[0].amount}</span>
+            {/* 2nd Place */}
+            <div className={`prize-step flex-1 ${prizes.second.height} flex flex-col justify-center items-center p-6 rounded-t-2xl shadow-2xl ${prizes.second.className}`}>
+                <prizes.second.Icon className="w-20 h-20 mb-2" />
+                <span className="text-xl md:text-2xl font-semibold mt-2">{prizes.second.amount}</span>
             </div>
-             <div className={`prize-step flex-1 ${prizes[1].height} flex flex-col justify-center items-center p-6 rounded-t-2xl text-white shadow-2xl bg-gradient-to-t from-green-500 to-teal-400`}>
-                <span className="text-4xl md:text-5xl font-bold">{prizes[1].rank}</span>
-                <span className="text-xl md:text-2xl font-semibold mt-2">{prizes[1].amount}</span>
+            {/* 1st Place */}
+             <div className={`prize-step flex-1 ${prizes.first.height} flex flex-col justify-center items-center p-6 rounded-t-2xl shadow-2xl ${prizes.first.className}`}>
+                <prizes.first.Icon className="w-24 h-24 mb-2" />
+                <span className="text-xl md:text-2xl font-semibold mt-2">{prizes.first.amount}</span>
             </div>
-             <div className={`prize-step flex-1 ${prizes[2].height} flex flex-col justify-center items-center p-6 rounded-t-2xl text-slate-800 shadow-2xl bg-gradient-to-t from-slate-100 to-white`}>
-                <span className="text-4xl md:text-5xl font-bold">{prizes[2].rank}</span>
-                <span className="text-xl md:text-2xl font-semibold mt-2">{prizes[2].amount}</span>
+            {/* 3rd Place */}
+             <div className={`prize-step flex-1 ${prizes.third.height} flex flex-col justify-center items-center p-6 rounded-t-2xl shadow-2xl ${prizes.third.className}`}>
+                <prizes.third.Icon className="w-16 h-16 mb-2" />
+                <span className="text-xl md:text-2xl font-semibold mt-2">{prizes.third.amount}</span>
             </div>
           </div>
         </div>

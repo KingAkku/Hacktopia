@@ -5,7 +5,7 @@ import SplitText from './SplitText';
 const scheduleData: ScheduleItem[] = [
   { time: 'Sept 25, 03:00 PM', title: 'Registration & Welcome', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
   { time: 'Sept 25, 04:00 PM', title: 'Kick-off & Hacking Begins', description: 'Opening remarks, theme reveal, and the official start of the hackathon.' },
-  { time: 'Sept 25, 08:30 PM', title: 'Dinner', description: 'Refuel with a delicious dinner on us, served at the hacking stations.' },
+  { time: 'Sept 25, 08:30 PM', title: 'Dinner & Campfire', description: 'Refuel with a delicious dinner on us, and gather around the campfire to share ideas and relax.' },
   { time: 'Sept 26, 01:00 AM', title: 'Midnight Refreshments', description: 'Recharge with some late-night refreshments to keep the ideas flowing.' },
   { time: 'Sept 26, 06:00 AM', title: 'Hacking Ends & Submissions', description: 'Pencils down! Finalize your projects and submit them for judging.' },
   { time: 'Sept 26, 06:30 AM', title: 'Demos & Award Ceremony', description: 'Showcase your work and celebrate the winners of Hacktopia!' },
