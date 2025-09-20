@@ -12,7 +12,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({ children, className = '', speed =
       className={`bg-clip-text text-transparent ${className}`}
       style={{
         backgroundImage: `
-          linear-gradient(120deg, transparent 30%, white 50%, transparent 70%),
+          linear-gradient(120deg, transparent 30%, #c4b5fd 50%, transparent 70%),
           linear-gradient(to right, #a78bfa, #8b5cf6)
         `,
         backgroundSize: '200% 100%, 100% 100%',

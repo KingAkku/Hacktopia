@@ -13,6 +13,7 @@ const Hero: React.FC = () => {
       id="hero" 
       className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden"
     >
+      <div className="hero-background-grid"></div>
       <div className="relative z-10 container mx-auto px-5">
         <div className="mb-8 text-center">
           <SplitText
