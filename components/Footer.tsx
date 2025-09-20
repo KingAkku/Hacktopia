@@ -4,23 +4,23 @@ import LinkedInIcon from './icons/LinkedInIcon';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 border-t border-slate-800">
+    <footer className="bg-slate-200 border-t border-slate-300">
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-400">Hacktopia</h3>
-            <p className="text-slate-400">College of Engineering, Pathanapuram</p>
+            <p className="text-slate-600">College of Engineering, Pathanapuram</p>
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="text-slate-400 hover:text-green-400 transition-colors">
+            <a href="#" className="text-slate-500 hover:text-green-500 transition-colors">
               <TwitterIcon className="w-8 h-8" />
             </a>
-            <a href="#" className="text-slate-400 hover:text-green-400 transition-colors">
+            <a href="#" className="text-slate-500 hover:text-green-500 transition-colors">
               <LinkedInIcon className="w-8 h-8" />
             </a>
           </div>
         </div>
-        <div className="text-center text-slate-500 mt-8 pt-6 border-t border-slate-800">
+        <div className="text-center text-slate-500 mt-8 pt-6 border-t border-slate-300">
           <p>&copy; {new Date().getFullYear()} Hacktopia. All rights reserved.</p>
         </div>
       </div>
