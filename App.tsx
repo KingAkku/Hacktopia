@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Sponsors from './components/Sponsors';
+import Guidelines from './components/Guidelines';
+import MoreInfo from './components/MoreInfo';
 import Schedule from './components/Schedule';
 import PrizePool from './components/PrizePool';
 import Coordinators from './components/Judges';
@@ -34,9 +36,11 @@ const App: React.FC = () => {
           <Hero />
           <About />
           <Sponsors />
+          <Guidelines />
           <Schedule />
           <PrizePool />
           <Coordinators />
+          <MoreInfo />
           <FAQ />
         </main>
         <Footer />
