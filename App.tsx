@@ -28,7 +28,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-transparent text-gray-200 relative overflow-x-hidden">
+    <div className="bg-white text-slate-700 relative overflow-x-hidden">
       <BubbleBackground />
       <div className="relative z-10">
         <Header />
