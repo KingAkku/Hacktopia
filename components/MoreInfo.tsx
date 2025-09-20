@@ -31,7 +31,7 @@ const MoreInfo: React.FC = () => {
                             <p>All official announcements will be communicated via whatsapp group to the registered team members.</p>
                             <p>For queries, contact:<br/>
                             Devika : <a href="tel:8138950611" className="hover:text-green-600">8138950611</a><br/>
-                            Ashwin : <a href="tel:7736011978" className="hover:text-green-600">7736011978</a></p>
+                            Aswin C S : <a href="tel:7736011978" className="hover:text-green-600">7736011978</a></p>
                         </div>
                     </div>
 
