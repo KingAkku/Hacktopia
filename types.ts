@@ -5,7 +5,7 @@ export interface ScheduleItem {
   description: string;
 }
 
-export interface Judge {
+export interface Coordinator {
   name: string;
   title: string;
   imageUrl: string;

@@ -3,9 +3,10 @@ import SmoothScroll from 'smooth-scroll';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import Sponsors from './components/Sponsors';
 import Schedule from './components/Schedule';
 import PrizePool from './components/PrizePool';
-import Judges from './components/Judges';
+import Coordinators from './components/Judges';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import BubbleBackground from './components/BubbleBackground';
@@ -32,9 +33,10 @@ const App: React.FC = () => {
         <main>
           <Hero />
           <About />
+          <Sponsors />
           <Schedule />
           <PrizePool />
-          <Judges />
+          <Coordinators />
           <FAQ />
         </main>
         <Footer />
