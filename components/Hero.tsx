@@ -23,13 +23,13 @@ const Hero: React.FC = () => {
             triggerOnScroll={false}
           />
         </div>
-        <div className="mb-8 text-xl md:text-2xl text-slate-300 text-center">
+        <div className="mb-8 text-xl md:text-2xl text-gray-300 text-center">
             <ShinyText>
                 Innovate. Collaborate. Create.
             </ShinyText>
         </div>
         
-        <div className="flex flex-col sm:flex-row sm:justify-center items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 text-slate-400 mb-12">
+        <div className="flex flex-col sm:flex-row sm:justify-center items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 text-gray-400 mb-12">
           <div className="flex items-start sm:items-center space-x-2">
             <CalendarIcon className="w-6 h-6 text-violet-400 flex-shrink-0 mt-1 sm:mt-0" />
             <span>September 25, 2025</span>
@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
         </div>
         
         <div className="mb-12 text-center">
-            <a href="#register" className="inline-block bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-10 py-4 rounded-full text-lg hover:scale-105 transform transition-transform duration-300 shadow-2xl shadow-violet-500/30">
+            <a href="https://forms.gle/bbWdM79m3G3LAuar8" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-10 py-4 rounded-full text-lg hover:scale-105 transform transition-transform duration-300 shadow-2xl shadow-violet-500/30">
               Register Your Spot!
             </a>
         </div>

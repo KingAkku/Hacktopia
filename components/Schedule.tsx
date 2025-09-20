@@ -20,11 +20,11 @@ const Schedule: React.FC = () => {
               <SplitText 
                   tag="h2" 
                   text="Event Timeline" 
-                  className="text-5xl font-bold text-slate-100" 
+                  className="text-5xl font-bold text-gray-100" 
                   splitType="words" 
               />
           </div>
-          <div className="text-lg text-slate-300">
+          <div className="text-lg text-gray-300">
               <SplitText 
                   text="An action-packed day of innovation and fun." 
                   splitType="words" 
@@ -43,13 +43,13 @@ const Schedule: React.FC = () => {
 
               {/* Dot in the middle */}
               <div className="z-10 order-2 flex items-center">
-                <div className="w-6 h-6 rounded-full bg-slate-900 border-4 border-violet-500 shadow-md"></div>
+                <div className="w-6 h-6 rounded-full bg-gray-900 border-4 border-violet-500 shadow-md"></div>
               </div>
 
               {/* Card on the other side */}
-              <div className={`w-5/12 p-6 bg-slate-900 rounded-2xl shadow-lg border border-slate-800 ${index % 2 === 0 ? 'order-3' : 'order-1'}`}>
-                <h3 className="text-xl font-bold text-slate-100 mb-2">{item.title}</h3>
-                <p className="text-slate-400 text-sm">{item.description}</p>
+              <div className={`w-5/12 p-6 bg-gray-900 rounded-2xl shadow-lg border border-gray-800 ${index % 2 === 0 ? 'order-3' : 'order-1'}`}>
+                <h3 className="text-xl font-bold text-gray-100 mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm">{item.description}</p>
               </div>
             </div>
           ))}

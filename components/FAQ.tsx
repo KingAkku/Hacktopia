@@ -12,9 +12,9 @@ const faqData: FAQItem[] = [
 
 const FAQAccordionItem: React.FC<{ item: FAQItem; isOpen: boolean; onClick: () => void; index: number }> = ({ item, isOpen, onClick, index }) => {
     return (
-        <div className="border-b border-slate-800 py-4">
+        <div className="border-b border-gray-800 py-4">
             <button
-                className="w-full flex justify-between items-center text-left text-lg font-semibold text-slate-100"
+                className="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-100"
                 onClick={onClick}
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${index}`}
@@ -28,7 +28,7 @@ const FAQAccordionItem: React.FC<{ item: FAQItem; isOpen: boolean; onClick: () =
                 id={`faq-answer-${index}`}
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 mt-4' : 'max-h-0'}`}
             >
-                <p className="text-slate-400">
+                <p className="text-gray-400">
                     {item.answer}
                 </p>
             </div>
@@ -52,11 +52,11 @@ const FAQ: React.FC = () => {
                 <SplitText 
                     tag="h2" 
                     text="Frequently Asked Questions" 
-                    className="text-5xl font-bold text-slate-100" 
+                    className="text-5xl font-bold text-gray-100" 
                     splitType="words" 
                 />
             </div>
-            <div className="text-lg text-slate-300">
+            <div className="text-lg text-gray-300">
                 <SplitText 
                     text="Got questions? We've got answers." 
                     splitType="words" 

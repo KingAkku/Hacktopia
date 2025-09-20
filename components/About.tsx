@@ -10,11 +10,11 @@ const About: React.FC = () => {
                 <SplitText 
                     tag="h2"
                     text="What is Hacktopia?" 
-                    className="text-5xl font-bold text-slate-100"
+                    className="text-5xl font-bold text-gray-100"
                     splitType="words"
                 />
             </div>
-            <div className="text-lg text-slate-300 max-w-3xl mx-auto">
+            <div className="text-lg text-gray-300 max-w-3xl mx-auto">
                 <SplitText 
                     text="A launchpad for student innovators to tackle the challenges that matter most to them."
                     splitType="words"
@@ -23,7 +23,7 @@ const About: React.FC = () => {
             </div>
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="p-8 bg-slate-900 rounded-2xl shadow-xl border border-slate-800">
+          <div className="p-8 bg-gray-900 rounded-2xl shadow-xl border border-gray-800">
             <div className="mb-4">
                 <SplitText 
                     tag="h3"
@@ -33,7 +33,7 @@ const About: React.FC = () => {
                     splitType="words"
                 />
             </div>
-            <div className="text-slate-400 leading-relaxed mb-4">
+            <div className="text-gray-400 leading-relaxed mb-4">
                 <SplitText
                     text="Students face unique challenges every day, from academic hurdles to campus life complexities. Hacktopia is a one-day intensive hackathon where you, the students, identify a pressing problem within your community and build a tangible solution from scratch."
                     textAlign="left"
@@ -42,7 +42,7 @@ const About: React.FC = () => {
                     tag="p"
                 />
             </div>
-            <div className="text-slate-400 leading-relaxed">
+            <div className="text-gray-400 leading-relaxed">
                  <SplitText
                     text="Whether it's an app to streamline study groups, a platform for mental wellness, or a tool to reduce campus waste, we want to see your brilliant ideas come to life. Bring your creativity, coding skills, and collaborative spirit!"
                     textAlign="left"

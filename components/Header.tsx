@@ -23,18 +23,18 @@ const Header: React.FC = () => {
           </a>
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map(link => (
-              <a key={link} href={`#${link.toLowerCase().replace(/\s+/g, '')}`} className="text-slate-300 hover:text-violet-400 transition-colors font-medium">
+              <a key={link} href={`#${link.toLowerCase().replace(/\s+/g, '')}`} className="text-gray-300 hover:text-violet-400 transition-colors font-medium">
                 {link}
               </a>
             ))}
           </div>
-          <a href="#register" className="hidden md:inline-block bg-gradient-to-r from-violet-500 to-purple-500 text-white font-semibold px-6 py-2 rounded-full hover:scale-105 transform transition-transform duration-300 shadow-lg">
+          <a href="https://forms.gle/bbWdM79m3G3LAuar8" target="_blank" rel="noopener noreferrer" className="hidden md:inline-block bg-gradient-to-r from-violet-500 to-purple-500 text-white font-semibold px-6 py-2 rounded-full hover:scale-105 transform transition-transform duration-300 shadow-lg">
             Register Now
           </a>
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-slate-200 focus:outline-none"
+              className="text-gray-200 focus:outline-none"
               aria-label="Toggle menu"
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -55,14 +55,16 @@ const Header: React.FC = () => {
                   <a 
                     key={link} 
                     href={`#${link.toLowerCase().replace(/\s+/g, '')}`} 
-                    className="text-2xl text-slate-200 hover:text-violet-400 transition-colors font-semibold"
+                    className="text-2xl text-gray-200 hover:text-violet-400 transition-colors font-semibold"
                     onClick={() => setIsMenuOpen(false)}
                   >
                       {link}
                   </a>
               ))}
               <a 
-                href="#register" 
+                href="https://forms.gle/bbWdM79m3G3LAuar8"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-10 py-4 rounded-full text-lg hover:scale-105 transform transition-transform duration-300 shadow-2xl"
                 onClick={() => setIsMenuOpen(false)}
               >
