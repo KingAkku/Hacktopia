@@ -6,7 +6,7 @@ const faqData: FAQItem[] = [
   { question: 'Who can participate in Hacktopia?', answer: 'The hackathon is open to all undergraduate and graduate students from any university. You don\'t have to be from PEC to participate.' },
   { question: 'Do I need a team to register?', answer: 'You can register as an individual or as a team of up to 4 members. We will have a team formation session at the beginning of the event for individuals looking for a team.' },
   { question: 'What is the cost to participate?', answer: 'Absolutely nothing! Participation is free for all selected students, and includes meals, snacks, and swag.' },
-  { question: 'What should I bring to the event?', answer: 'You should bring your laptop, chargers, any necessary hardware for your project, and a valid student ID. Most importantly, bring your ideas and enthusiasm!' },
+  { question: 'What should I bring to the event?', answer: 'You should bring your laptop, chargers, any necessary hardware for your project, and a valid student ID. Since this is an overnight event, you might also want to bring essentials like a toothbrush.' },
   { question: 'What are the judging criteria?', answer: 'Projects will be judged based on technical complexity, creativity, design, impact on the student community, and the quality of the final presentation.' },
 ];
 

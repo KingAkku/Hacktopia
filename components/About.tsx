@@ -35,7 +35,7 @@ const About: React.FC = () => {
             </div>
             <div className="text-gray-400 leading-relaxed mb-4">
                 <SplitText
-                    text="Students face unique challenges every day, from academic hurdles to campus life complexities. Hacktopia is a one-day intensive hackathon where you, the students, identify a pressing problem within your community and build a tangible solution from scratch."
+                    text="Students face unique challenges every day, from academic hurdles to campus life complexities. Hacktopia is a 15-hour overnight hackathon where you, the students, identify a pressing problem within your community and build a tangible solution from scratch."
                     textAlign="left"
                     splitType="words"
                     delay={10}

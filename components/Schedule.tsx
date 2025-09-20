@@ -3,12 +3,12 @@ import type { ScheduleItem } from '../types';
 import SplitText from './SplitText';
 
 const scheduleData: ScheduleItem[] = [
-  { time: '09:00 AM', title: 'Registration & Welcome', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
-  { time: '09:30 AM', title: 'Kick-off & Hacking Begins', description: 'Opening remarks, theme reveal, and the official start of the hackathon.' },
-  { time: '12:30 PM', title: 'Working Lunch', description: 'Refuel with a delicious lunch on us, served at the hacking stations.' },
-  { time: '03:00 PM', title: 'Hacking Ends & Submissions', description: 'Pencils down! Finalize your projects and submit them for judging.' },
-  { time: '03:15 PM', title: 'Project Expo & Judging', description: 'Showcase your work to the judges and fellow participants.' },
-  { time: '04:00 PM', title: 'Awards & Closing Ceremony', description: 'Celebrating the amazing projects and announcing the winners of Hacktopia!' },
+  { time: 'Sept 25, 04:00 PM', title: 'Registration & Welcome', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
+  { time: 'Sept 25, 04:30 PM', title: 'Kick-off & Hacking Begins', description: 'Opening remarks, theme reveal, and the official start of the hackathon.' },
+  { time: 'Sept 25, 08:30 PM', title: 'Dinner', description: 'Refuel with a delicious dinner on us, served at the hacking stations.' },
+  { time: 'Sept 26, 01:00 AM', title: 'Midnight Check-in & Snacks', description: 'A quick check-in to see your progress and grab some midnight snacks.' },
+  { time: 'Sept 26, 06:30 AM', title: 'Hacking Ends & Submissions', description: 'Pencils down! Finalize your projects and submit them for judging.' },
+  { time: 'Sept 26, 07:00 AM', title: 'Demos, Awards & Breakfast', description: 'Showcase your work, celebrate the winners, and enjoy some breakfast before you go!' },
 ];
 
 const Schedule: React.FC = () => {
@@ -26,7 +26,7 @@ const Schedule: React.FC = () => {
           </div>
           <div className="text-lg text-gray-300">
               <SplitText 
-                  text="An action-packed day of innovation and fun." 
+                  text="A 15-hour marathon of innovation and fun." 
                   splitType="words" 
                   delay={20} 
               />
