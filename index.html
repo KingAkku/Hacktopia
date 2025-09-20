@@ -10,7 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-      body, h1, h2, h3, h4, h5, h6 {
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #111827; /* bg-gray-900 fallback */
+        background-image: linear-gradient(180deg, #1e1b4b 0%, #111827 100%); /* indigo-950 to gray-900 */
+      }
+      h1, h2, h3, h4, h5, h6 {
         font-family: 'Inter', sans-serif;
       }
       @keyframes shine
@@ -27,7 +32,7 @@
         background-clip: text;
         -webkit-background-clip: text;
         background-image: linear-gradient(120deg, transparent 30%, white 50%, transparent 70%),
-                          linear-gradient(to right, #22c55e, #14b8a6);
+                          linear-gradient(to right, #e5e7eb, #d1d5db);
         background-size: 200% 100%, 100% 100%;
         background-position: 200% 0, 0 0;
         background-repeat: no-repeat;

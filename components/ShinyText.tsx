@@ -13,7 +13,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({ children, className = '', speed =
       style={{
         backgroundImage: `
           linear-gradient(120deg, transparent 30%, white 50%, transparent 70%),
-          linear-gradient(to right, #22c55e, #14b8a6)
+          linear-gradient(to right, #a78bfa, #8b5cf6)
         `,
         backgroundSize: '200% 100%, 100% 100%',
         backgroundPosition: '200% 0, 0 0',

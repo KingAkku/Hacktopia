@@ -13,7 +13,7 @@ const BubbleBackground: React.FC = () => {
           left: `${Math.random() * 100}%`,
           animationDelay: `${Math.random() * 15}s`,
           animationDuration: `${Math.random() * 10 + 10}s`,
-          backgroundColor: `rgba(34, 197, 94, ${Math.random() * 0.15 + 0.05})`,
+          backgroundColor: `rgba(139, 92, 246, ${Math.random() * 0.15 + 0.05})`,
         };
         return <div key={i} className="bubble" style={style} />;
       })}

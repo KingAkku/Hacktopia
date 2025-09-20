@@ -36,7 +36,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   }, [targetDate]);
 
   if (!timeLeft) {
-    return <div className="text-3xl font-bold text-green-600">The event has started!</div>;
+    return <div className="text-3xl font-bold text-violet-400">The event has started!</div>;
   }
 
   const timeParts = [
@@ -49,11 +49,11 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   return (
     <div className="flex justify-center items-center space-x-4 md:space-x-8">
       {timeParts.map(({ label, value }) => (
-        <div key={label} className="text-center p-4 rounded-2xl bg-white/50 shadow-lg w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center border border-gray-200/50">
-          <span className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-500">
+        <div key={label} className="text-center p-4 rounded-2xl bg-slate-800/30 shadow-lg w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center border border-slate-700/50 backdrop-blur-sm">
+          <span className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400">
             {String(value).padStart(2, '0')}
           </span>
-          <span className="text-xs md:text-sm text-gray-500 uppercase tracking-wider">{label}</span>
+          <span className="text-xs md:text-sm text-slate-400 uppercase tracking-wider">{label}</span>
         </div>
       ))}
     </div>

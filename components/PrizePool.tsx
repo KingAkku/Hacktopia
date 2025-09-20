@@ -26,15 +26,15 @@ const PrizePool: React.FC = () => {
   ];
 
   return (
-    <section id="prizepool" ref={container} className="py-20 bg-gray-50/50">
+    <section id="prizepool" ref={container} className="py-20 bg-black/20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="mb-4">
-            <h2 className="text-5xl font-bold">
+            <h2 className="text-5xl font-bold text-slate-100">
               Prize Pool
             </h2>
           </div>
-          <div className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <div className="text-lg text-slate-300 max-w-3xl mx-auto">
             <p className="leading-relaxed">
               Showcase your skills and compete for cash prizes. All participants who submit a valid project will receive a certificate of participation.
             </p>
@@ -44,15 +44,15 @@ const PrizePool: React.FC = () => {
         <div className="max-w-4xl mx-auto mt-20">
           <div className="flex justify-center items-end gap-2 md:gap-4">
             {/* Reorder for visual stair effect */}
-            <div className={`prize-step flex-1 ${prizes[0].height} flex flex-col justify-center items-center p-6 rounded-t-2xl text-white shadow-2xl bg-gradient-to-t from-gray-700 to-gray-800`}>
+            <div className={`prize-step flex-1 ${prizes[0].height} flex flex-col justify-center items-center p-6 rounded-t-2xl text-white shadow-2xl bg-gradient-to-t from-slate-800 to-slate-900`}>
                 <span className="text-4xl md:text-5xl font-bold">{prizes[0].rank}</span>
                 <span className="text-xl md:text-2xl font-semibold mt-2">{prizes[0].amount}</span>
             </div>
-             <div className={`prize-step flex-1 ${prizes[1].height} flex flex-col justify-center items-center p-6 rounded-t-2xl text-white shadow-2xl bg-gradient-to-t from-green-600 to-teal-500`}>
+             <div className={`prize-step flex-1 ${prizes[1].height} flex flex-col justify-center items-center p-6 rounded-t-2xl text-white shadow-2xl bg-gradient-to-t from-violet-600 to-purple-500`}>
                 <span className="text-4xl md:text-5xl font-bold">{prizes[1].rank}</span>
                 <span className="text-xl md:text-2xl font-semibold mt-2">{prizes[1].amount}</span>
             </div>
-             <div className={`prize-step flex-1 ${prizes[2].height} flex flex-col justify-center items-center p-6 rounded-t-2xl text-white shadow-2xl bg-gradient-to-t from-gray-700 to-gray-800`}>
+             <div className={`prize-step flex-1 ${prizes[2].height} flex flex-col justify-center items-center p-6 rounded-t-2xl text-white shadow-2xl bg-gradient-to-t from-slate-800 to-slate-900`}>
                 <span className="text-4xl md:text-5xl font-bold">{prizes[2].rank}</span>
                 <span className="text-xl md:text-2xl font-semibold mt-2">{prizes[2].amount}</span>
             </div>

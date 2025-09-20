@@ -12,23 +12,23 @@ const faqData: FAQItem[] = [
 
 const FAQAccordionItem: React.FC<{ item: FAQItem; isOpen: boolean; onClick: () => void; index: number }> = ({ item, isOpen, onClick, index }) => {
     return (
-        <div className="border-b border-gray-200 py-4">
+        <div className="border-b border-slate-800 py-4">
             <button
-                className="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800"
+                className="w-full flex justify-between items-center text-left text-lg font-semibold text-slate-100"
                 onClick={onClick}
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${index}`}
             >
                 <span className="pr-4">{item.question}</span>
                 <span className={`transform transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
-                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg className="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                 </span>
             </button>
             <div 
                 id={`faq-answer-${index}`}
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 mt-4' : 'max-h-0'}`}
             >
-                <p className="text-gray-600">
+                <p className="text-slate-400">
                     {item.answer}
                 </p>
             </div>
@@ -45,18 +45,18 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-gray-50/50">
+    <section id="faq" className="py-20 bg-black/20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
             <div className="mb-4">
                 <SplitText 
                     tag="h2" 
                     text="Frequently Asked Questions" 
-                    className="text-5xl font-bold" 
+                    className="text-5xl font-bold text-slate-100" 
                     splitType="words" 
                 />
             </div>
-            <div className="text-lg text-gray-600">
+            <div className="text-lg text-slate-300">
                 <SplitText 
                     text="Got questions? We've got answers." 
                     splitType="words" 
