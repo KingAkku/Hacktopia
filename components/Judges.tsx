@@ -3,10 +3,10 @@ import type { Coordinator } from '../types';
 import SplitText from './SplitText';
 
 const coordinatorsData: Coordinator[] = [
-  { name: 'Alex Johnson', title: 'Lead Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
-  { name: 'Maria Garcia', title: 'Event Manager', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
-  { name: 'David Chen', title: 'Logistics Head', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
-  { name: 'Sarah Lee', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
+  { name: 'Aswin C S', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
+  { name: 'Devika', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
+  { name: 'Akhil Kumar S', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
+  { name: 'Joel', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
 ];
 
 const CoordinatorCard: React.FC<{ coordinator: Coordinator }> = ({ coordinator }) => (
