@@ -3,12 +3,12 @@ import type { ScheduleItem } from '../types';
 import SplitText from './SplitText';
 
 const scheduleData: ScheduleItem[] = [
-  { time: 'Sept 25, 04:00 PM', title: 'Registration & Welcome', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
-  { time: 'Sept 25, 04:30 PM', title: 'Kick-off & Hacking Begins', description: 'Opening remarks, theme reveal, and the official start of the hackathon.' },
+  { time: 'Sept 25, 03:00 PM', title: 'Registration & Welcome', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
+  { time: 'Sept 25, 04:00 PM', title: 'Kick-off & Hacking Begins', description: 'Opening remarks, theme reveal, and the official start of the hackathon.' },
   { time: 'Sept 25, 08:30 PM', title: 'Dinner', description: 'Refuel with a delicious dinner on us, served at the hacking stations.' },
-  { time: 'Sept 26, 01:00 AM', title: 'Midnight Check-in & Snacks', description: 'A quick check-in to see your progress and grab some midnight snacks.' },
-  { time: 'Sept 26, 06:30 AM', title: 'Hacking Ends & Submissions', description: 'Pencils down! Finalize your projects and submit them for judging.' },
-  { time: 'Sept 26, 07:00 AM', title: 'Demos, Awards & Breakfast', description: 'Showcase your work, celebrate the winners, and enjoy some breakfast before you go!' },
+  { time: 'Sept 26, 01:00 AM', title: 'Midnight Refreshments', description: 'Recharge with some late-night refreshments to keep the ideas flowing.' },
+  { time: 'Sept 26, 06:00 AM', title: 'Hacking Ends & Submissions', description: 'Pencils down! Finalize your projects and submit them for judging.' },
+  { time: 'Sept 26, 06:30 AM', title: 'Demos & Award Ceremony', description: 'Showcase your work and celebrate the winners of Hacktopia!' },
 ];
 
 const Schedule: React.FC = () => {
