@@ -49,7 +49,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   return (
     <div className="flex justify-center items-center space-x-4 md:space-x-8">
       {timeParts.map(({ label, value }) => (
-        <div key={label} className="text-center p-4 rounded-2xl bg-gray-800/30 shadow-lg w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center border border-gray-700/50 backdrop-blur-sm">
+        <div key={label} className="text-center p-4 rounded-2xl bg-black/50 shadow-lg w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center border border-purple-800/40 backdrop-blur-sm">
           <span className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400">
             {String(value).padStart(2, '0')}
           </span>
