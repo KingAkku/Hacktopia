@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Coordinator } from '../types';
 import SplitText from './SplitText';
 
 const coordinatorsData: Coordinator[] = [
-  { name: 'Aswin C S', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
+  { name: 'Aswin C S', title: 'Volunteer Coordinator', imageUrl: '/aswin.svg' },
   { name: 'Devika M R', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
-  { name: 'Akhil Kumar S', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
-  { name: 'Joel T', title: 'Volunteer Coordinator', imageUrl: '/joel.jpg' },
+  { name: 'Akhil Kumar S', title: 'Volunteer Coordinator', imageUrl: '/akhil.svg' },
+  { name: 'Joel T', title: 'Volunteer Coordinator', imageUrl: '/joel.svg' },
 ];
 
-const CoordinatorCard: React.FC<{ coordinator: Coordinator }> = ({ coordinator }) => (
-  <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 border border-slate-200">
-    <img src={coordinator.imageUrl} alt={coordinator.name} className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-green-500 object-cover" />
-    <h3 className="text-2xl font-bold text-slate-800">{coordinator.name}</h3>
-    <p className="text-green-500">{coordinator.title}</p>
-  </div>
-);
+const getInitials = (name: string): string => {
+  const names = name.split(' ');
+  if (names.length === 1) return names[0].substring(0, 2).toUpperCase();
+  return `${names[0][0]}${names[names.length - 1][0]}`.toUpperCase();
+};
+
+const CoordinatorCard: React.FC<{ coordinator: Coordinator }> = ({ coordinator }) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 border border-slate-200">
+      <div className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-green-500 overflow-hidden bg-green-100 flex items-center justify-center">
+        {imgError ? (
+          <span className="text-3xl font-bold text-green-600">{getInitials(coordinator.name)}</span>
+        ) : (
+          <img 
+            src={coordinator.imageUrl} 
+            alt={coordinator.name} 
+            className="w-full h-full object-cover"
+            onError={() => setImgError(true)}
+          />
+        )}
+      </div>
+      <h3 className="text-2xl font-bold text-slate-800">{coordinator.name}</h3>
+      <p className="text-green-500">{coordinator.title}</p>
+    </div>
+  );
+};
 
 const Coordinators: React.FC = () => {
   return (
