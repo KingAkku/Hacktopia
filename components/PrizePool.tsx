@@ -39,7 +39,7 @@ const PrizePool: React.FC = () => {
           </div>
           <div className="text-lg text-slate-600 max-w-3xl mx-auto">
             <p className="leading-relaxed">
-              Showcase your skills and compete for cash prizes. All participants who submit a valid project will receive a certificate of participation.
+              Showcase your skills and compete for cash prizes. All participants who submit a valid project will receive a certificate of participation. The top 3 teams will receive the certificate of completion.
             </p>
           </div>
         </div>
