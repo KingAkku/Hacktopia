@@ -4,7 +4,7 @@ import SplitText from './SplitText';
 
 const coordinatorsData: Coordinator[] = [
   { name: 'Aswin C S', title: 'Volunteer Coordinator', imageUrl: '/aswin.svg' },
-  { name: 'Devika M R', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
+  { name: 'Devika M R', title: 'Volunteer Coordinator', imageUrl: '/devika.svg' },
   { name: 'Akhil Kumar S', title: 'Volunteer Coordinator', imageUrl: '/akhil.svg' },
   { name: 'Joel T', title: 'Volunteer Coordinator', imageUrl: '/joel.svg' },
 ];
