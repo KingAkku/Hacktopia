@@ -60,8 +60,8 @@ const MoreInfo: React.FC = () => {
                             <li>Reporting Time: 3:00 PM, Day 1</li>
                             <li>Hacking Start Time: 4:00 PM, Day 1</li>
                             <li>Hacking End Time: 7:00 AM, Day 2</li>
-                            <li>Judging will begin shortly after submissions close. Top teams will be selected for a final presentation round.</li>
-                            <li>Final results will be announced during the Award Ceremony around 10:00 AM on Day 2.</li>
+                            <li>Preliminary judging rounds will take place during the final hours of hacking.</li>
+                            <li>Final presentations and winner announcements will happen at 7:00 AM on Day 2 as the event concludes.</li>
                         </ul>
                     </div>
                 </div>
