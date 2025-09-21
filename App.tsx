@@ -8,6 +8,7 @@ import Guidelines from './components/Guidelines';
 import MoreInfo from './components/MoreInfo';
 import Schedule from './components/Schedule';
 import PrizePool from './components/PrizePool';
+import Benefits from './components/Benefits';
 import Coordinators from './components/Judges';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -39,6 +40,7 @@ const App: React.FC = () => {
           <Guidelines />
           <Schedule />
           <PrizePool />
+          <Benefits />
           <Coordinators />
           <MoreInfo />
           <FAQ />

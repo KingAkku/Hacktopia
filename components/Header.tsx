@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['About', 'Sponsors', 'Guidelines', 'Schedule', 'Prize Pool', 'Coordinators', 'More Info', 'FAQ'];
+  const navLinks = ['About', 'Sponsors', 'Guidelines', 'Schedule', 'Prize Pool', 'Benefits', 'Coordinators', 'More Info', 'FAQ'];
 
   return (
     <>
