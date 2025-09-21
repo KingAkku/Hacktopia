@@ -6,7 +6,7 @@ const coordinatorsData: Coordinator[] = [
   { name: 'Aswin C S', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
   { name: 'Devika M R', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
   { name: 'Akhil Kumar S', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
-  { name: 'Joel', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
+  { name: 'Joel T Skariya', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
 ];
 
 const CoordinatorCard: React.FC<{ coordinator: Coordinator }> = ({ coordinator }) => (
