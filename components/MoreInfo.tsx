@@ -58,10 +58,10 @@ const MoreInfo: React.FC = () => {
                         <ul className="list-disc list-inside text-slate-500 space-y-2">
                             <li>The hackathon will run for exactly 15 hours.</li>
                             <li>Reporting Time: 3:00 PM, Day 1</li>
-                            <li>Start Time: 4:00 PM, Day 1</li>
-                            <li>End Time: 7:00 AM, Day 2</li>
-                            <li>All teams will be judged during the first round starting at 5:00 AM on Day 2, followed by a second round of evaluation.</li>
-                            <li>Final results will be announced around 8:00 AM.</li>
+                            <li>Hacking Start Time: 4:00 PM, Day 1</li>
+                            <li>Hacking End Time: 7:00 AM, Day 2</li>
+                            <li>Judging will begin shortly after submissions close. Top teams will be selected for a final presentation round.</li>
+                            <li>Final results will be announced during the Award Ceremony around 10:00 AM on Day 2.</li>
                         </ul>
                     </div>
                 </div>

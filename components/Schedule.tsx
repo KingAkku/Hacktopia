@@ -5,12 +5,16 @@ import SplitText from './SplitText';
 const scheduleData: ScheduleItem[] = [
   { time: 'Sept 25, 03:00 PM', title: 'Registration & Welcome', description: 'Doors open! Grab your badge, some coffee, and meet fellow hackers.' },
   { time: 'Sept 25, 04:00 PM', title: 'Kick-off & Hacking Begins', description: 'Opening remarks, theme reveal, and the official start of the hackathon.' },
-  { time: 'Sept 25, 05:00 PM', title: 'First Round Evaluation', description: 'Pariticipants are reviewed based on predefined criteria.' },
-  { time: 'Sept 25, 07:00 PM', title: 'Final Round Evaluation', description: 'The stage of the assessment process where the shortlisted participants are carefully reviewed in detail and a winner is selected.' },
+  { time: 'Sept 25, 06:00 PM', title: 'Mentor Check-in #1', description: 'Mentors will be around to help you refine your ideas and solve technical roadblocks.' },
   { time: 'Sept 25, 08:30 PM', title: 'Dinner & Campfire', description: 'Refuel with a delicious dinner on us, and gather around the campfire to share ideas and relax.' },
+  { time: 'Sept 25, 10:30 PM', title: 'Tech Workshop', description: 'An optional workshop on "API Integration & Modern Web Frameworks".' },
   { time: 'Sept 26, 01:00 AM', title: 'Midnight Refreshments', description: 'Recharge with some late-night refreshments to keep the ideas flowing.' },
-  { time: 'Sept 26, 06:00 AM', title: 'Hacking Ends & Submissions', description: 'Pencils down! Finalize your projects and submit them for judging.' },
-  { time: 'Sept 26, 06:30 AM', title: 'Demos & Award Ceremony', description: 'Showcase your work and celebrate the winners of Hacktopia!' },
+  { time: 'Sept 26, 03:00 AM', title: 'Mentor Check-in #2', description: 'Final check-in with mentors before the final push.' },
+  { time: 'Sept 26, 07:00 AM', title: 'Hacking Ends & Submissions', description: 'Pencils down! Finalize your projects and submit them for judging.' },
+  { time: 'Sept 26, 07:15 AM', title: 'Breakfast & Project Expo Setup', description: 'Grab some breakfast while the judges begin their review.' },
+  { time: 'Sept 26, 08:00 AM', title: 'Demos & Judging', description: 'Showcase your work to the judges and fellow participants in a science fair format.' },
+  { time: 'Sept 26, 09:30 AM', title: 'Finalist Presentations', description: 'Top teams present their projects on stage.' },
+  { time: 'Sept 26, 10:00 AM', title: 'Award Ceremony & Closing', description: 'Celebrate the winners and the amazing work done by everyone at Hacktopia!' },
 ];
 
 const Schedule: React.FC = () => {
