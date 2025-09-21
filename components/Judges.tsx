@@ -6,12 +6,12 @@ const coordinatorsData: Coordinator[] = [
   { name: 'Aswin C S', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
   { name: 'Devika M R', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
   { name: 'Akhil Kumar S', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
-  { name: 'Joel T', title: 'Volunteer Coordinator', imageUrl: 'https://placehold.co/200x200/e2e8f0/334155?text=Coordinator' },
+  { name: 'Joel T', title: 'Volunteer Coordinator', imageUrl: '/joel.jpg' },
 ];
 
 const CoordinatorCard: React.FC<{ coordinator: Coordinator }> = ({ coordinator }) => (
   <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 border border-slate-200">
-    <img src={coordinator.imageUrl} alt={coordinator.name} className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-green-500" />
+    <img src={coordinator.imageUrl} alt={coordinator.name} className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-green-500 object-cover" />
     <h3 className="text-2xl font-bold text-slate-800">{coordinator.name}</h3>
     <p className="text-green-500">{coordinator.title}</p>
   </div>
