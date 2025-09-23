@@ -10,9 +10,9 @@ import Schedule from './components/Schedule';
 import PrizePool from './components/PrizePool';
 import Benefits from './components/Benefits';
 import Coordinators from './components/Judges';
+import Location from './components/Location';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
-import BubbleBackground from './components/BubbleBackground';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -30,7 +30,6 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-white text-slate-700 relative overflow-x-hidden">
-      <BubbleBackground />
       <div className="relative z-10">
         <Header />
         <main>
@@ -43,6 +42,7 @@ const App: React.FC = () => {
           <Benefits />
           <Coordinators />
           <MoreInfo />
+          <Location />
           <FAQ />
         </main>
         <Footer />
