@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
              <p className="mt-2 text-sm">
                 Registrations close soon. Secure your spot and get ready to build something amazing.
              </p>
-             <a href="https://forms.gle/bbWdM79m3G3LAuar8" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold px-5 py-2.5 rounded-lg text-sm hover:scale-105 transform transition-transform duration-300 shadow-lg shadow-green-500/30">
+             <a href="#" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold px-5 py-2.5 rounded-lg text-sm hover:scale-105 transform transition-transform duration-300 shadow-lg shadow-green-500/30">
                 Register Now
              </a>
           </div>
