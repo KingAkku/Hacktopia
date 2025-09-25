@@ -28,7 +28,7 @@ const Header: React.FC = () => {
               </a>
             ))}
           </div>
-          <a href="https://forms.gle/bbWdM79m3G3LAuar8" target="_blank" rel="noopener noreferrer" className="hidden md:inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold px-6 py-2 rounded-full hover:scale-105 transform transition-transform duration-300 shadow-lg">
+          <a href="" target="_blank" rel="noopener noreferrer" className="hidden md:inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold px-6 py-2 rounded-full hover:scale-105 transform transition-transform duration-300 shadow-lg">
             Register Now
           </a>
           <div className="md:hidden">
