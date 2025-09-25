@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
         </div>
         
         <div className="mb-12 text-center">
-            <a href="https://forms.gle/bbWdM79m3G3LAuar8" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold px-10 py-4 rounded-full text-lg hover:scale-105 transform transition-transform duration-300 shadow-2xl shadow-green-500/30">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold px-10 py-4 rounded-full text-lg hover:scale-105 transform transition-transform duration-300 shadow-2xl shadow-green-500/30">
               Register Your Spot!
             </a>
         </div>
